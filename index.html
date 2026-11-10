@@ -545,7 +545,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 <!-- ================= TOPBAR ================= -->
 <header class="bar">
   <div class="wrap bar-in">
-    <a class="brand" href="#oversigt" aria-label="Tobias Herstal, til oversigten">
+    <a class="brand" href="#oversigt" aria-label="Tobias Herstal – tilbage til startskærmen">
       <span class="ring"><svg viewBox="0 0 40 34" aria-hidden="true"><path d="M4 6 H17 C21.5 6 24 8.5 24 13 V28 M12 6 V28 M24 17.5 H36 M36 6 V28" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       <span><b>Tobias Herstal</b><small>Automationsteknologstuderende</small></span>
     </a>
@@ -1352,17 +1352,24 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   }
 
   /* ---------- Boot ---------- */
-  var boot=$('#boot'), start=$('#start'), skip=$('#skip'), lines=$$('#log li');
-  function done(){ if(!boot||boot.hidden)return; boot.classList.add('off'); store('th-boot','1'); setTimeout(function(){boot.hidden=true},460); var h=document.getElementById(current||'oversigt').querySelector('[tabindex="-1"]'); if(h)h.focus({preventScroll:true}) }
-  var skipBoot=store('th-boot')==='1'||(location.hash&&location.hash.length>1&&location.hash!=='#oversigt');
-  route(true);
-  if(boot&&!skipBoot){
-    boot.hidden=false;
+  var boot=$('#boot'), start=$('#start'), skip=$('#skip'), lines=$$('#log li'), timers=[];
+  function done(){ if(!boot||boot.hidden)return; timers.forEach(clearTimeout); timers=[]; boot.classList.add('off'); setTimeout(function(){boot.hidden=true},460); var h=document.getElementById(current||'oversigt').querySelector('[tabindex="-1"]'); if(h)h.focus({preventScroll:true}) }
+  function openBoot(){
+    if(!boot)return;
+    timers.forEach(clearTimeout); timers=[];
+    lines.forEach(function(l){l.classList.remove('in')}); start.classList.remove('ready');
+    boot.hidden=false; boot.classList.remove('off');
     if(reduce){lines.forEach(function(l){l.classList.add('in')});start.classList.add('ready')}
-    else{lines.forEach(function(l,i){setTimeout(function(){l.classList.add('in')},180+i*160)});setTimeout(function(){start.classList.add('ready')},180+lines.length*160)}
+    else{lines.forEach(function(l,i){timers.push(setTimeout(function(){l.classList.add('in')},180+i*160))});timers.push(setTimeout(function(){start.classList.add('ready')},180+lines.length*160))}
     start.focus({preventScroll:true});
-    start.addEventListener('click',done); skip.addEventListener('click',done);
   }
+  route(true);
+  if(boot){
+    start.addEventListener('click',done); skip.addEventListener('click',done);
+    openBoot();
+  }
+  var brand=$('.brand');
+  if(brand)brand.addEventListener('click',function(e){e.preventDefault();if(location.hash!=='#oversigt')location.hash='oversigt';openBoot()});
   document.addEventListener('keydown',function(e){
     if(e.key!=='Escape')return;
     if(boot&&!boot.hidden){done();return}

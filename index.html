@@ -213,6 +213,8 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .st-row.now .step::after{background:var(--run);animation:led 2.4s ease-in-out infinite}
 .link{height:2px;background:var(--ink);margin-top:21px}
 .act{border:2px solid var(--ink);border-radius:4px;background:var(--surface);padding:12px 16px 14px;display:grid;gap:6px;min-width:0}
+.st-row.flash .act{animation:flash 2.4s ease-out}
+@keyframes flash{0%,30%{box-shadow:0 0 0 4px var(--flow);border-color:var(--flow)}100%{box-shadow:0 0 0 0 transparent}}
 .act .when{font:500 11.5px/1.2 var(--f-mono);color:var(--flow);letter-spacing:.04em;text-transform:uppercase}
 .act h3{font:700 18px/1.2 var(--f-display)}
 .act h3 small{font:500 14px/1.3 var(--f-body);color:var(--muted);margin-left:4px}
@@ -649,6 +651,11 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .used.cardsy button,.used.cardsy a{display:grid;gap:3px;text-align:left;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
 .used.cardsy button::after,.used.cardsy a::after{content:none}
 .used.cardsy b{font:600 14px/1.2 var(--f-body)}
+@media (min-width:900px) and (max-height:700px){
+  .kp-panel{gap:9px;padding:16px 20px}.kp-panel h3{font-size:22px}.kp-panel .what{font-size:14.5px;line-height:1.45}.kp-panel .how{font-size:13.5px;line-height:1.45}
+  .kp-panel .chips{gap:5px}.kp-panel .chips li{padding:5px 9px;font-size:12.5px}.used.cardsy{gap:6px}.used.cardsy button,.used.cardsy a{padding:7px 10px}.kp-btn{padding:6px 12px}
+}
+@media (min-width:900px) and (max-height:640px){.kp-panel .how{display:none}}
 .used.cardsy small{font:400 11.5px/1.2 var(--f-mono);color:var(--muted)}
 .used.cardsy button:hover,.used.cardsy a:hover{border-color:var(--flow);background:var(--surface);color:var(--ink)}
 
@@ -849,7 +856,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
               <h3>Fra Odense til automation</h3>
               <div class="txt">
                 <p>Jeg er født i 1996 og vokset op i Odense, hvor jeg tog HHX. Mit sabbatår gik med genoptræning efter en knæoperation og med Hong Kong og Miami. Bagefter kom Jack &amp; Jones, guideskole og sæsoner i Alperne og ved Middelhavet, indtil corona sendte os hjem to uger før tid i 2020.</p>
-                <p>Efter et år med job på Bryggeriet Flakhaven og hos Brdr. Simonsen og et halvt år på Rødding Højskole flyttede jeg i september 2021 til København. Da Summitweek lukkede i 2024, tog jeg en reboot og valgte automation.</p>
+                <p>Efter et års tid med deltids- og fuldtidsjob i forskellige servicebrancher og et halvt år på Rødding Højskole flyttede jeg i september 2021 til København. Da Summitweek lukkede i 2024, havde jeg vendt hver en sten i servicebranchen. Så jeg vendte det hele på hovedet. Nu er det automation, og drømmen er at blive den automationsteknolog, I ikke troede fandtes. Jeres go-to fixer.</p>
               </div>
             </div>
             <ol class="route v" aria-label="Steder jeg har boet og arbejdet">
@@ -1234,7 +1241,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
         </div></div>
         <div class="trans"><span>sep 2022 · samtidigt</span></div>
         <div class="par two"><div class="par-cols">
-          <div class="branch"><div class="st-row" data-io><div class="step">8</div><div class="link"></div>
+          <div class="branch"><div class="st-row" id="kar-brand" data-io><div class="step">8</div><div class="link"></div>
             <div class="act"><p class="when">Sep 2022 til mar 2024 · kontoret i København</p><h3>Brand Manager <small>· Summitweek, ML Travel Group</small></h3>
               <ul><li>Ansvar for afdelingens drift og salg af skirejser for unge</li><li>Samarbejdsaftaler med ambassadører, transport, indkvartering og budget</li><li>Hjemmeside og sociale medier</li></ul>
               <p>Afdelingen blev lukket i 2024.</p></div></div></div>
@@ -1251,9 +1258,9 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
           <div class="branch"><div class="st-row" data-io><div class="step">11</div><div class="link"></div>
             <div class="act"><p class="when">Aug 2025 til jun 2027</p><h3>Automationsteknolog AK <small>· EK Lygten</small></h3>
               <ul><li>PLC- og HMI-programmering, struktureret programmering og robotprogrammering</li><li>Procesregulering, systemdesign og komplekse robotsystemer</li><li>Maskin- og robotsikkerhed, el-teknik og forretningsforståelse</li><li>Valgfag: SCADA (i gang)</li></ul></div></div></div>
-          <div class="branch"><div class="st-row" data-io><div class="step">12</div><div class="link"></div>
+          <div class="branch"><div class="st-row" id="kar-mekaniker" data-io><div class="step">12</div><div class="link"></div>
             <div class="act"><p class="when">Jan 2026 til nu · deltid</p><h3>Mekaniker <small>· Bowlernes Hal Grøndal</small></h3>
-              <ul><li>Fejlfinder og reparerer AMF 90XLi-keglerejsere på 20 baner, fx en knækket sweeper eller kegler, der sidder fast i bordet</li><li>Kontrollerer sikkerhedskredse: nødstop og magnetiske dørkontakter, genstart med reset</li><li>Nulstiller styreenheder og kommunikationsudstyr ved manglende signal fra sensorer og kameraer</li><li>Hjalp med at få hallens infoskærme (OptiSigns) til at virke</li></ul></div></div></div>
+              <ul><li>Fejlfinder og reparerer AMF 90XLi-keglerejsere på 20 baner, fx en knækket sweeper eller kegler, der sidder fast i bordet</li><li>Kontrollerer sikkerhedskredse: nødstop og magnetiske dørkontakter, genstart med reset</li><li>Nulstiller styreenheder og kommunikationsudstyr ved manglende signal fra sensorer og kameraer</li></ul></div></div></div>
           <div class="branch"><div class="st-row" data-io><div class="step">13</div><div class="link"></div>
             <div class="act"><p class="when">Mar 2025 til nu · deltid</p><h3>Barista og shiftleader <small>· Espresso House, Rådhuspladsen</small></h3>
               <ul><li>Tidligere fuldtid som shiftleader, nu deltid ved siden af studiet</li></ul></div></div></div>
@@ -1659,13 +1666,13 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
             <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="montage"><b>Montagerobot</b><small>Systemdesign · 3. sem.</small></button></div></div>
           <div class="kp-panel" role="tabpanel" id="k-hmi" aria-labelledby="kb-hmi"><h3>Skærme til operatøren</h3><p class="what">HMI er skærmen ved maskinen, hvor operatøren følger og styrer anlægget. SCADA samler overblikket over et helt anlæg på én skærm.</p><p class="how">Operatørskærme efter ISA-101: rolige farver, så det, der kræver opmærksomhed, springer i øjnene.</p>
             <h4>Værktøjer</h4><ul class="chips"><li>KTP700 Basic</li><li>WinCC</li><li>HMI Template Suite</li><li>ISA-101</li><li>SCADA (valgfag, i gang)</li></ul>
-            <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="fyld"><b>Påfyldningslinje</b><small>Eksamensprojekt · 1. sem.</small></button></div></div>
+            <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="fyld"><b>Påfyldningslinje</b><small>Eksamensprojekt · 1. sem.</small></button><button type="button" data-goto="plcsys"><b>Festo-procesanlæg</b><small>PLC-systemer · 2. sem.</small></button></div></div>
           <div class="kp-panel" role="tabpanel" id="k-net" aria-labelledby="kb-net"><h3>Netværk mellem maskiner</h3><p class="what">Måden, PLC'er, robotter og skærme sender data til hinanden på, så flere maskiner kan arbejde sammen.</p><p class="how">Profinet mellem PLC og robot, Modbus TCP til simulering og SEND/RCV mellem to PLC'er.</p>
             <h4>Protokoller</h4><ul class="chips"><li>Profinet</li><li>Modbus TCP</li><li>OPC UA</li><li>SEND/RCV mellem PLC'er</li></ul>
             <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="montage"><b>Montagerobot</b><small>Systemdesign · 3. sem.</small></button><button type="button" data-goto="festo"><b>Festo MPS</b><small>Struktureret prog. · 2. sem.</small></button><button type="button" data-goto="baand"><b>Dobbelt transportbånd</b><small>PLC/HMI · 2. sem.</small></button><button type="button" data-goto="sort"><b>Sorteringsanlæg</b><small>Systemdesign · i gang</small></button></div></div>
-          <div class="kp-panel" role="tabpanel" id="k-it" aria-labelledby="kb-it"><h3>IT og AI</h3><p class="what">Programmerne og systemerne omkring anlægget. AI bruger jeg til kode, dokumentation og research.</p><p class="how">Jeg har selv sat denne hjemmeside op på GitHub og fik bowlinghallens infoskærme til at virke.</p>
-            <h4>Værktøjer</h4><ul class="chips"><li>Microsoft 365</li><li>VMware og Hyper-V</li><li>GitHub og GitHub Pages</li><li>OptiSigns (infoskærme)</li><li>Python og MicroPython</li><li>Claude</li><li>ChatGPT</li><li>Copilot</li></ul>
-            <h4>Brugt i</h4><div class="used cardsy"><a class="job" href="#karriere"><b>Bowlernes Hal Grøndal</b><small>Job · infoskærme</small></a><button type="button" data-goto="pico"><b>PicoGo-robotbil</b><small>MicroPython · 2. sem.</small></button></div></div>
+          <div class="kp-panel" role="tabpanel" id="k-it" aria-labelledby="kb-it"><h3>IT og AI</h3><p class="what">Programmerne og systemerne omkring anlægget. AI bruger jeg til kode, dokumentation og research.</p><p class="how">Jeg har selv bygget og sat denne hjemmeside op på GitHub, og jeg bruger AI som sparringspartner, når jeg koder og dokumenterer.</p>
+            <h4>Værktøjer</h4><ul class="chips"><li>Microsoft 365</li><li>VMware og Hyper-V</li><li>GitHub og GitHub Pages</li><li>Python og MicroPython</li><li>Claude</li><li>ChatGPT</li><li>Copilot</li></ul>
+            <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="pico"><b>PicoGo-robotbil</b><small>MicroPython · 2. sem.</small></button></div></div>
           <div class="kp-panel" role="tabpanel" id="k-reg" aria-labelledby="kb-reg"><h3>Regulering og analoge signaler</h3><p class="what">At holde fx niveau, flow, tryk eller temperatur stabilt, også når forholdene ændrer sig, og at omregne de analoge signaler fra følerne, så programmet kan bruge dem.</p><p class="how">PID-indstilling på et procesanlæg, skalering af analoge signaler og hysterese på grænseværdier.</p>
             <h4>Metoder</h4><ul class="chips"><li>PID-indstilling</li><li>Ziegler-Nichols og Heilmann</li><li>Skalering af analoge signaler</li><li>Hysterese</li><li>Analoge sætpunkter (0-10 V)</li></ul>
             <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="pid"><b>Procesregulering</b><small>2. og 3. sem.</small></button><button type="button" data-goto="plcsys"><b>Festo-procesanlæg</b><small>PLC-systemer · 2. sem.</small></button><button type="button" data-goto="montage"><b>Montagerobot</b><small>Systemdesign · 3. sem.</small></button></div></div>
@@ -1674,13 +1681,13 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
             <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="montage"><b>Montagerobot</b><small>Systemdesign · 3. sem.</small></button><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="sort"><b>Sorteringsanlæg</b><small>Systemdesign · i gang</small></button></div></div>
           <div class="kp-panel" role="tabpanel" id="k-el" aria-labelledby="kb-el"><h3>El og maskinsikkerhed</h3><p class="what">Det fysiske lag: motorer, følere og de sikkerhedskredse, der sørger for, at maskinen stopper, når den skal.</p><p class="how">Nødstop og dørkontakter er en del af hverdagen i bowlinghallen, og på studiet har jeg tegnet el-diagrammer i SEE Electrical.</p>
             <h4>Erfaring med</h4><ul class="chips"><li>Nødstop og dørkontakter</li><li>Sikkerhedsrelæ (Pilz)</li><li>230 V-gearmotorer med bremse og encoder</li><li>Frekvensomformere</li><li>Følere, cylindre og ventiler</li><li>El-diagrammer i SEE Electrical</li><li>Kabeldimensionering</li><li>SolidWorks (3D)</li></ul>
-            <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="fyld"><b>Påfyldningslinje</b><small>Eksamensprojekt · 1. sem.</small></button><button type="button" data-goto="baand"><b>Dobbelt transportbånd</b><small>PLC/HMI · 2. sem.</small></button><a class="job" href="#karriere"><b>Bowlernes Hal Grøndal</b><small>Job · mekaniker</small></a></div></div>
+            <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="fyld"><b>Påfyldningslinje</b><small>Eksamensprojekt · 1. sem.</small></button><button type="button" data-goto="baand"><b>Dobbelt transportbånd</b><small>PLC/HMI · 2. sem.</small></button><a class="job" href="#karriere" data-kar="kar-mekaniker"><b>Bowlernes Hal Grøndal</b><small>Job · mekaniker</small></a></div></div>
           <div class="kp-panel" role="tabpanel" id="k-doc" aria-labelledby="kb-doc"><h3>Dokumentation og standarder</h3><p class="what">Tegninger, lister og testplaner, så andre kan forstå, bygge og fejlfinde anlægget, og de regler, anlægget skal overholde.</p><p class="how">Kravspecifikationer, GRAFCET, I/O-lister og risikovurderinger efter de standarder, anlæggene skal overholde.</p>
             <h4>Standarder og dokumenter</h4><ul class="chips"><li>Kravspecifikation og funktionskrav</li><li>DS/EN 61131-3 (PLC-sprog)</li><li>GRAFCET (DS/EN 60848)</li><li>I/O- og komponentlister (DS/EN IEC 81346-2)</li><li>Risikovurdering og CE</li><li>EN 60204-1</li><li>EN ISO 10218-2</li><li>Maskindirektivet</li><li>Ny Maskinforordning (EU) 2023/1230</li></ul>
             <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="cellen"><b>Cellen · robotcelle</b><small>Årsprøve · 2. sem.</small></button><button type="button" data-goto="montage"><b>Montagerobot</b><small>Systemdesign · 3. sem.</small></button><button type="button" data-goto="festo"><b>Festo MPS</b><small>Struktureret prog. · 2. sem.</small></button><button type="button" data-goto="sort"><b>Sorteringsanlæg</b><small>Systemdesign · i gang</small></button></div></div>
           <div class="kp-panel" role="tabpanel" id="k-biz" aria-labelledby="kb-biz"><h3>Forretning</h3><p class="what">En løsning skal også give mening økonomisk. Det har jeg fra HHX, faget forretningsforståelse og tiden som Brand Manager.</p><p class="how">Forretningsplan og budget, tilbud til en kunde og budgetansvar i rejsebranchen.</p>
             <h4>Erfaring med</h4><ul class="chips"><li>Forretningsmodel og værdikæde</li><li>Forretningsplan og budget</li><li>Tilbud til kunde</li><li>Drift, salg og samarbejdsaftaler</li></ul>
-            <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="biz"><b>Forretningsplan</b><small>Forretningsforståelse</small></button><button type="button" data-goto="fyld"><b>Påfyldningslinje</b><small>Eksamensprojekt · 1. sem.</small></button><a class="job" href="#karriere"><b>ML Travel Group</b><small>Job · Brand Manager</small></a></div></div>
+            <h4>Brugt i</h4><div class="used cardsy"><button type="button" data-goto="biz"><b>Forretningsplan</b><small>Forretningsforståelse</small></button><button type="button" data-goto="fyld"><b>Påfyldningslinje</b><small>Eksamensprojekt · 1. sem.</small></button><a class="job" href="#karriere" data-kar="kar-brand"><b>ML Travel Group</b><small>Job · Brand Manager</small></a></div></div>
         </div>
       </div>
     </div>
@@ -1845,6 +1852,11 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   pbtns.forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.p,true)})});
   pick('cellen',false);
   $$('[data-goto]').forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.goto,false);location.hash='projekter'})});
+  $$('[data-kar]').forEach(function(a){a.addEventListener('click',function(e){
+    var t=document.getElementById(a.dataset.kar); if(!t)return; e.preventDefault();
+    if(location.hash!=='#karriere')location.hash='karriere'; show('karriere',{quiet:true});
+    requestAnimationFrame(function(){t.classList.add('on');t.scrollIntoView({block:'center',behavior:reduce?'auto':'smooth'});t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash')});
+  })});
 
   /* ---------- GRAFCET: trin tændes, når de rulles frem ---------- */
   if('IntersectionObserver' in window){

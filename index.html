@@ -491,6 +491,122 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   .route.v em{grid-column:1/-1}
   .cards.c3,.cards.c2{grid-template-columns:minmax(0,1fr)}
 }
+
+/* ================= BOOT: spørgsmål + to valg ================= */
+.boot-foot{display:grid;gap:14px;align-items:start}
+.boot-q{font:600 clamp(17px,2.4vw,21px)/1.35 var(--f-display);color:var(--panel-ink);max-width:40ch;text-wrap:balance}
+.boot-btns{display:flex;gap:12px;flex-wrap:wrap}
+.bl{display:grid;gap:5px;text-align:left}
+.bl small{font:500 11.5px/1.2 var(--f-mono);letter-spacing:.02em;opacity:.85}
+.explain{display:inline-flex;align-items:center;gap:12px;padding:12px 22px 12px 16px;border-radius:14px;border:2px solid var(--panel-key);background:transparent;color:var(--panel-key);cursor:pointer;font:700 17px/1 var(--f-body);letter-spacing:.02em;transition:transform .15s,background .15s}
+.explain:hover{background:color-mix(in srgb,var(--panel-key) 14%,transparent)}
+.explain:active{transform:scale(.97)}
+.explain .qm{width:22px;height:22px;border-radius:50%;background:var(--panel-key);color:var(--panel);display:grid;place-items:center;font:800 14px/1 var(--f-body);flex:none}
+.start{padding-block:12px}
+@media (max-width:520px){.boot-btns>button{flex:1 1 100%}}
+@media (max-height:740px){.screen{gap:12px;padding-block:18px}.boot-title{font-size:clamp(28px,5vw,38px)}.log{gap:2px}.boot-q{font-size:17px}}
+@media (max-height:640px){.log li:nth-child(n+6):not(:last-child){display:none}}
+.hero-r{display:grid;gap:10px;justify-items:start}
+.ex-link{display:inline-flex;align-items:center;gap:9px;font:500 14px/1.2 var(--f-body);color:var(--muted);text-decoration:none;padding:6px 13px 6px 6px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.ex-link b{font-weight:600;color:var(--flow)}
+.ex-link .qm{width:22px;height:22px;border-radius:50%;background:var(--flow);color:var(--on-flow);display:grid;place-items:center;font:800 13px/1 var(--f-body);flex:none}
+.ex-link:hover{border-color:var(--flow)}
+
+/* ================= AUTOMATION FORKLARET ================= */
+.scene.ex{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,3.5vw,48px);align-items:center}
+.scene.ex.ex-why{display:flex!important;flex-direction:column;align-items:stretch;gap:16px}
+.ex-txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ex h3{font-size:clamp(26px,2.9vw,38px);max-width:22ch;text-wrap:balance}
+.ex .lead{font:600 clamp(17px,1.5vw,20px)/1.4 var(--f-display);max-width:44ch;text-wrap:balance}
+.ex .ana{font-size:clamp(15px,1.15vw,16.5px);line-height:1.58;max-width:60ch;padding-left:14px;border-left:3px solid var(--flow)}
+.ex .real{font-size:14.5px;line-height:1.5;color:var(--muted);max-width:60ch}
+.ex .real b{color:var(--ink);font-weight:600}
+.where{display:grid;gap:8px}
+.where>span{font:500 11px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ex .tech{margin-top:0}
+.ex-art{margin:0;border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:12px;display:grid;place-items:center;min-width:0}
+.ex-art svg{width:100%;height:auto;max-height:min(52vh,420px);display:block}
+.ex-why .cards b{font-size:18px}
+/* tekst og flader i tegningerne */
+.t-lab{font-family:var(--f-mono);font-size:10px;font-weight:600;fill:var(--ink)}
+.t-big{font-family:var(--f-display);font-size:14px;font-weight:700;fill:var(--ink);letter-spacing:.04em}
+.t-flow{font-family:var(--f-mono);font-size:10px;font-weight:600;fill:var(--flow)}
+.t-val{font-family:var(--f-mono);font-size:10px;font-weight:600;fill:var(--ink)}
+.t-on{font-family:var(--f-mono);font-size:9.5px;font-weight:600;fill:var(--surface);letter-spacing:.06em}
+.t-alm{font-family:var(--f-mono);font-size:9px;font-weight:700;fill:var(--surface);letter-spacing:.04em}
+.t-pm{font-family:var(--f-mono);font-size:9px;fill:var(--panel-mute)}
+.t-code{font-family:var(--f-mono);font-size:9.5px;fill:var(--panel-ink)}
+.t-pk{fill:var(--panel-key)} .t-ps{fill:var(--panel-str)}
+.f-panel{fill:var(--panel)} .f-line{fill:var(--line)} .f-prule{fill:var(--panel-rule)} .f-warn{fill:var(--warn)} .f-puck{fill:var(--puck)} .f-pstr{fill:var(--panel-str)}
+.s-ink2{fill:none;stroke:var(--ink);stroke-width:2}
+.ic{fill:none;stroke:var(--ink);stroke-width:2.2}
+.nd-c{fill:var(--surface);stroke:var(--ink);stroke-width:2.5}
+/* 0 · mærk-tænk-gør */
+.loop-base{fill:none;stroke:var(--line);stroke-width:3;stroke-linejoin:round}
+.loop-pulse{fill:none;stroke:var(--flow);stroke-width:5;stroke-linecap:round;stroke-dasharray:5 95;animation:loopp 3.6s linear infinite}
+.nd-ring{fill:none;stroke:var(--flow);stroke-width:4;opacity:0}
+.nd1 .nd-ring{animation:g1 3.6s linear infinite}.nd2 .nd-ring{animation:g2 3.6s linear infinite}.nd3 .nd-ring{animation:g3 3.6s linear infinite}
+@keyframes loopp{from{stroke-dashoffset:0}to{stroke-dashoffset:-100}}
+@keyframes g1{0%{opacity:1}10%,92%{opacity:0}100%{opacity:1}}
+@keyframes g2{0%,24%{opacity:0}29%{opacity:1}40%,100%{opacity:0}}
+@keyframes g3{0%,52%{opacity:0}57%{opacity:1}68%,100%{opacity:0}}
+/* 1 · føler og cylinder */
+.cbox{animation:cbx 6s linear infinite}
+.cmark{fill:none;stroke:var(--on-flow);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:0;animation:cm 6s linear infinite}
+.stamp{animation:stp 6s ease-in-out infinite}
+.s-led{fill:var(--panel-mute);animation:sled 6s steps(1) infinite}
+@keyframes cbx{0%{transform:translateX(-40px)}35%,70%{transform:translateX(218px)}100%{transform:translateX(340px)}}
+@keyframes cm{0%,49%{opacity:0}50%,100%{opacity:1}}
+@keyframes stp{0%,42%{transform:translateY(0)}48%,56%{transform:translateY(22px)}62%,100%{transform:translateY(0)}}
+@keyframes sled{0%{fill:var(--panel-mute)}34%{fill:var(--run)}71%{fill:var(--panel-mute)}}
+/* 2 · PLC-cyklus */
+.ring-base{fill:none;stroke:var(--bg-2);stroke-width:12}
+.ring-run{fill:none;stroke:var(--flow);stroke-width:12;stroke-dasharray:22 78;transform-box:fill-box;transform-origin:50% 50%;animation:spin 3s linear infinite}
+.hl{fill:color-mix(in srgb,var(--panel-key) 22%,transparent);animation:hlm 3s steps(1) infinite}
+@keyframes hlm{0%{transform:translateY(0)}20%{transform:translateY(18px)}40%{transform:translateY(36px)}60%{transform:translateY(54px)}80%{transform:translateY(72px)}}
+/* 3 · robotarm */
+.ra3{transform-box:view-box;transform-origin:160px 160px;animation:ra3 6.5s ease-in-out infinite}
+.ra4{transform-box:view-box;transform-origin:160px 85px;animation:ra4 6.5s ease-in-out infinite}
+.arm{stroke:var(--ink);stroke-width:9;stroke-linecap:round}
+.joint{fill:var(--surface);stroke:var(--ink);stroke-width:2.5}
+.grip{fill:none;stroke:var(--ink);stroke-width:3;stroke-linejoin:round}
+.hs1{fill:var(--line);animation:hs1 6.5s steps(1) infinite}
+.hs2{fill:var(--line);animation:hs2 6.5s steps(1) infinite}
+@keyframes ra3{0%,12%{transform:rotate(-50deg)}45%,62%{transform:rotate(50deg)}95%,100%{transform:rotate(-50deg)}}
+@keyframes ra4{0%,12%{transform:rotate(-130deg)}45%,62%{transform:rotate(130deg)}95%,100%{transform:rotate(-130deg)}}
+@keyframes hs1{0%{fill:var(--run)}12%{fill:var(--line)}}
+@keyframes hs2{0%{fill:var(--line)}55%{fill:var(--run)}63%{fill:var(--line)}}
+/* 4 · HMI-alarm */
+.alm{opacity:0;animation:alm 7s linear infinite}
+@keyframes alm{0%,40%{opacity:0}42%,46%{opacity:1}48%{opacity:.35}50%,54%{opacity:1}56%{opacity:.35}58%{opacity:1}60%,100%{opacity:0}}
+/* 5 · netværk */
+.net{stroke:var(--line);stroke-width:3}
+.pk{stroke:var(--flow);stroke-width:7;stroke-linecap:round;stroke-dasharray:2 98;animation:pkt 2.4s linear infinite}
+.pk2{animation-delay:-.6s}.pk3{animation-delay:-1.2s}.pk4{animation-delay:-1.8s}
+@keyframes pkt{from{stroke-dashoffset:2}to{stroke-dashoffset:-100}}
+/* 6 · regulering */
+.ax{fill:none;stroke:var(--muted);stroke-width:1.5}
+/* 7 · simulering og sikkerhed */
+.vbox{fill:none;stroke:var(--flow);stroke-width:2;stroke-dasharray:6 5}
+.vline{stroke:var(--flow);stroke-width:2;stroke-dasharray:4 4}
+.vblk{fill:none;stroke:var(--flow);stroke-width:2;stroke-dasharray:3 3}
+.mb{animation:mb 3s linear infinite}.mb2{animation-delay:-1.2s}
+.tick{fill:none;stroke:var(--run);stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;opacity:0}
+.tk1{animation:tk1 6s linear infinite}.tk2{animation:tk2 6s linear infinite}.tk3{animation:tk3 6s linear infinite}
+.estop-ring{fill:none;stroke:var(--puck);stroke-width:3;transform-box:fill-box;transform-origin:50% 50%;animation:esr 2s ease-out infinite}
+@keyframes mb{0%{transform:translateX(0);opacity:0}10%,85%{opacity:1}100%{transform:translateX(74px);opacity:0}}
+@keyframes tk1{0%,14%{opacity:0}16%,96%{opacity:1}100%{opacity:0}}
+@keyframes tk2{0%,34%{opacity:0}36%,96%{opacity:1}100%{opacity:0}}
+@keyframes tk3{0%,54%{opacity:0}56%,96%{opacity:1}100%{opacity:0}}
+@keyframes esr{0%{opacity:.8;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
+@media (min-width:900px) and (max-height:700px){
+  .ex h3{font-size:25px}.ex .lead{font-size:16px}.ex .ana{font-size:14.5px;line-height:1.5}.ex .real{font-size:13.5px}
+  .ex-txt{gap:9px}.ex-art svg{max-height:44vh}.ex .used button{padding:6px 9px;font-size:12.5px}
+  .ex-why .cards li{padding:12px 14px}.ex-why .cards span{font-size:14px}
+}
+@media (max-width:899px),(max-height:599px){
+  .scene.ex{grid-template-columns:minmax(0,1fr)!important}
+}
 /* skrive-effekt */
 .code.typing .ln{visibility:hidden}
 .code.typing .ln.shown{visibility:visible}
@@ -555,8 +671,11 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
       <li><span class="k">Program</span><span class="dots"></span><span class="v ok">MAIN indlæst · klar</span></li>
     </ul>
     <div class="boot-foot">
-      <button class="start" id="start" type="button"><span class="knob"></span>START</button>
-      <p class="boot-hint">Et anlæg tjekker sig selv, før det går i drift. Tryk START for at se mit CV.</p>
+      <p class="boot-q">Hvad er en automationsteknolog – og hvorfor skal I have mig med ombord?</p>
+      <div class="boot-btns">
+        <button class="start" id="start" type="button"><span class="knob"></span><span class="bl">START<small>Jeg ved det – videre</small></span></button>
+        <button class="explain" id="explain" type="button"><span class="qm">?</span><span class="bl">FORKLAR<small>Vis mig det på 2 minutter</small></span></button>
+      </div>
     </div>
   </div></div>
 </div>
@@ -594,7 +713,10 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
         <p class="eyebrow">Automationsteknologstuderende · EK Lygten · 2025–2027</p>
         <h1 tabindex="-1">Tobias Herstal</h1>
       </div>
-      <p class="sub">Søger <b>10 ugers praktik fra 11. januar 2027</b> med fokus på programmering, integration og fejlfinding. Færdiguddannet juni 2027.</p>
+      <div class="hero-r">
+        <p class="sub">Søger <b>10 ugers praktik fra 11. januar 2027</b> med fokus på programmering, integration og fejlfinding. Færdiguddannet juni 2027.</p>
+        <a class="ex-link" href="#automation"><span class="qm" aria-hidden="true">?</span>Hvad laver en automationsteknolog? <b>Se det på 2 minutter ›</b></a>
+      </div>
     </div>
     <div class="v-body">
       <div class="grid">
@@ -792,6 +914,271 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
               <li><b>Og måske mere</b><span>Gerne med mulighed for at blive bagefter.</span></li>
             </ul>
             <div class="ctas"><a class="btn" href="#projekter">Se mine projekter</a><a class="back" href="#kontakt">Kontakt mig</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AUTOMATION FORKLARET ================= -->
+<section class="view story-view" id="automation" data-v="automation" aria-labelledby="h-ax">
+  <div class="story">
+    <div class="stage">
+      <div class="wrap stage-in">
+        <div class="v-head">
+          <div><p class="eyebrow">Automation · forklaret</p><h2 id="h-ax" tabindex="-1">Automation på 2 minutter</h2><p class="plain">Hvad en automationsteknolog laver – forklaret med billeder fra hverdagen.</p></div>
+          <a class="back" href="#oversigt">← Oversigt <kbd>Esc</kbd></a>
+        </div>
+        <div class="scenes">
+          <ol class="rail" aria-label="Afsnit i Automation på 2 minutter">
+            <li><button type="button" data-i="0"><i>0</i>Intro</button></li>
+            <li><button type="button" data-i="1"><i>1</i>Sanser</button></li>
+            <li><button type="button" data-i="2"><i>2</i>Hjernen</button></li>
+            <li><button type="button" data-i="3"><i>3</i>Robotter</button></li>
+            <li><button type="button" data-i="4"><i>4</i>Skærmen</button></li>
+            <li><button type="button" data-i="5"><i>5</i>Sproget</button></li>
+            <li><button type="button" data-i="6"><i>6</i>Balancen</button></li>
+            <li><button type="button" data-i="7"><i>7</i>Generalprøven</button></li>
+            <li><button type="button" data-i="8"><i>8</i>Hvorfor mig</button></li>
+          </ol>
+
+          <!-- 0 · Intro -->
+          <div class="scene ex" data-i="0">
+            <div class="ex-txt">
+              <p class="fn">Intro</p>
+              <h3>Hvad laver en automationsteknolog?</h3>
+              <p class="lead">Kort sagt: Jeg får maskiner, robotter og software til at arbejde sammen – og holder dem kørende.</p>
+              <p class="ana">Tænk på en travl café i myldretiden. Nogen holder øje med, hvad der sker. Nogen beslutter, hvad der skal ske. Og nogen gør det. På en fabrik er det følere, en PLC og motorer – og automationsteknologen får dem til at spille sammen.</p>
+              <div class="where"><span>Vi arbejder bl.a. med</span><ul class="tech"><li>Medicinal</li><li>Fødevarer og bryggerier</li><li>Vand og forsyning</li><li>Vind og energi</li><li>Lager og logistik</li><li>Bygninger</li><li>Bagagesystemer</li></ul></div>
+              <p class="cue"><span class="mouse" aria-hidden="true"></span>Rul ned – ét trin ad gangen.</p>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <path d="M70 140 L160 62 L250 140 Z" class="loop-base"/>
+                <path d="M70 140 L160 62 L250 140 Z" pathLength="100" class="loop-pulse"/>
+                <g class="nd nd1"><circle cx="70" cy="140" r="35" class="nd-ring"/><circle cx="70" cy="140" r="27" class="nd-c"/><path d="M53 140 Q70 124 87 140 Q70 156 53 140 Z" class="ic"/><circle cx="70" cy="140" r="5" class="f-ink"/></g>
+                <g class="nd nd2"><circle cx="160" cy="62" r="35" class="nd-ring"/><circle cx="160" cy="62" r="27" class="nd-c"/><rect x="145" y="52" width="30" height="20" rx="3" class="ic"/><text x="160" y="65.5" text-anchor="middle" class="t-lab">PLC</text></g>
+                <g class="nd nd3"><circle cx="250" cy="140" r="35" class="nd-ring"/><circle cx="250" cy="140" r="27" class="nd-c"/><circle cx="250" cy="140" r="12" class="ic"/><text x="250" y="144" text-anchor="middle" class="t-lab">M</text></g>
+                <text x="70" y="192" text-anchor="middle" class="t-big">MÆRK</text><text x="70" y="206" text-anchor="middle" class="t-mono">føleren ser</text>
+                <text x="198" y="56" class="t-big">TÆNK</text><text x="198" y="70" class="t-mono">PLC'en beslutter</text>
+                <text x="250" y="192" text-anchor="middle" class="t-big">GØR</text><text x="250" y="206" text-anchor="middle" class="t-mono">motoren handler</text>
+                <text x="160" y="157" text-anchor="middle" class="t-mono">… og forfra</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 1 · Sanser og muskler -->
+          <div class="scene ex" data-i="1">
+            <div class="ex-txt">
+              <p class="fn">1 · Sanser og muskler</p>
+              <h3>Følere mærker – motorer gør</h3>
+              <p class="ana">Følere er anlæggets sanser. De ser, at en kasse er kommet, mærker temperaturen og måler vandet i tanken – ligesom baristaen, der kan høre mælken skumme og se, når koppen er fuld. Motorer, ventiler og cylindre er musklerne, der gør noget ved det.</p>
+              <p class="real"><b>Det har jeg arbejdet med:</b> fotoceller og følere for niveau, flow, tryk og temperatur – og pumper, ventiler, cylindre og gearmotorer med frekvensomformer.</p>
+              <div class="used"><button type="button" data-goto="plcsys">Festo-procesanlæg</button><button type="button" data-goto="fyld">Påfyldningslinje</button><button type="button" data-goto="baand">Dobbelt transportbånd</button></div>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <rect x="218" y="18" width="26" height="34" rx="3" class="f-bg2" stroke="var(--ink)" stroke-width="2.5"/>
+                <g class="stamp"><line x1="231" y1="52" x2="231" y2="86" class="s-ink"/><rect x="219" y="84" width="24" height="8" rx="2" class="f-ink"/></g>
+                <text x="210" y="38" text-anchor="end" class="t-mono">cylinder</text>
+                <rect x="266" y="80" width="28" height="14" rx="3" class="f-ink"/><circle cx="287" cy="87" r="3" class="s-led"/>
+                <line x1="268" y1="94" x2="246" y2="124" class="beam"/>
+                <text x="280" y="72" text-anchor="middle" class="t-mono">føler</text>
+                <g class="cbox"><rect x="0" y="114" width="26" height="26" rx="3" class="f-flow"/><path d="M7 127 l4 4 l8 -9" class="cmark"/></g>
+                <rect x="16" y="140" width="288" height="20" rx="10" class="s-ink"/>
+                <line x1="30" y1="150" x2="290" y2="150" class="belt-move"/>
+                <circle cx="26" cy="150" r="5" class="f-ink"/><circle cx="294" cy="150" r="5" class="f-ink"/>
+                <line x1="294" y1="156" x2="294" y2="173" class="s-ink"/>
+                <circle cx="294" cy="186" r="13" class="nd-c"/><text x="294" y="190" text-anchor="middle" class="t-lab">M</text>
+                <text x="274" y="190" text-anchor="end" class="t-mono">motor</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 2 · Hjernen -->
+          <div class="scene ex" data-i="2">
+            <div class="ex-txt">
+              <p class="fn">2 · Hjernen</p>
+              <h3>PLC'en følger opskriften – hver gang</h3>
+              <p class="ana">En PLC er en lille, robust industricomputer. Den læser sanserne, følger programmet og giver musklerne besked – igen og igen, mange gange i sekundet. Programmet er en opskrift: Er mælken 65 grader, så sluk for dampen. Forskellen er, at PLC'en aldrig springer et trin over.</p>
+              <p class="real"><b>Det gør jeg:</b> skriver opskriften i Siemens TIA Portal og Beckhoff TwinCAT 3 – i ladder, SCL og Structured Text.</p>
+              <div class="used"><button type="button" data-goto="cellen">Cellen – robotcelle</button><button type="button" data-goto="festo">Festo MPS</button><button type="button" data-goto="sort">Sorteringsanlæg</button></div>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <circle cx="84" cy="110" r="54" class="ring-base"/>
+                <circle cx="84" cy="110" r="54" pathLength="100" class="ring-run"/>
+                <text x="84" y="108" text-anchor="middle" class="t-big">PLC</text><text x="84" y="123" text-anchor="middle" class="t-mono">≈ 10 ms</text>
+                <text x="84" y="40" text-anchor="middle" class="t-lab">1 LÆS</text>
+                <text x="128" y="184" text-anchor="middle" class="t-lab">2 TÆNK</text>
+                <text x="38" y="184" text-anchor="middle" class="t-lab">3 GØR</text>
+                <rect x="166" y="34" width="142" height="148" rx="8" class="f-panel"/>
+                <text x="178" y="52" class="t-pm">MAIN · ST</text>
+                <rect x="168" y="63" width="138" height="16" rx="2" class="hl"/>
+                <text x="178" y="75" class="t-code"><tspan class="t-pk">IF</tspan> Temp &gt;= <tspan class="t-ps">65.0</tspan> <tspan class="t-pk">THEN</tspan></text>
+                <text x="192" y="93" class="t-code">Damp := <tspan class="t-ps">FALSE</tspan>;</text>
+                <text x="178" y="111" class="t-code"><tspan class="t-pk">ELSE</tspan></text>
+                <text x="192" y="129" class="t-code">Damp := <tspan class="t-ps">TRUE</tspan>;</text>
+                <text x="178" y="147" class="t-code"><tspan class="t-pk">END_IF</tspan>;</text>
+                <text x="178" y="170" class="t-pm">// igen og igen</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 3 · Robotter -->
+          <div class="scene ex" data-i="3">
+            <div class="ex-txt">
+              <p class="fn">3 · Robotter</p>
+              <h3>En kollega, der aldrig bliver træt</h3>
+              <p class="ana">At programmere en robot er som at lære nogen en dans. Hvert trin, hver position og hver hastighed skal beskrives præcist – og robotten skal vide, hvornår den må gå på gulvet, så den ikke træder nogen over tæerne.</p>
+              <p class="real"><b>Det har jeg lavet:</b> programmeret DENSO-robotten i PacScript med WINCAPS III og fået den til at give "håndtryk" med PLC'en, så hele cellen kører som én maskine.</p>
+              <div class="used"><button type="button" data-goto="cellen">Cellen – robotcelle</button><button type="button" data-goto="montage">Montagerobot</button></div>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <rect x="70" y="193" width="64" height="6" rx="2" class="f-ink"/><rect x="186" y="193" width="64" height="6" rx="2" class="f-ink"/>
+                <rect x="96" y="179" width="14" height="14" rx="2" class="f-flow p-left"/><rect x="211" y="179" width="14" height="14" rx="2" class="f-flow p-right"/>
+                <rect x="148" y="160" width="24" height="40" rx="3" class="f-ink"/><rect x="134" y="198" width="52" height="6" rx="2" class="f-ink"/>
+                <g class="ra3">
+                  <line x1="160" y1="160" x2="160" y2="85" class="arm"/>
+                  <g class="ra4">
+                    <line x1="160" y1="85" x2="160" y2="20" class="arm"/>
+                    <path d="M150 4 V20 H170 V4" class="grip"/>
+                    <rect x="153" y="5" width="14" height="14" rx="2" class="f-flow p-carry"/>
+                    <circle cx="160" cy="85" r="7" class="joint"/>
+                  </g>
+                  <circle cx="160" cy="160" r="9" class="joint"/>
+                </g>
+                <text x="102" y="214" text-anchor="middle" class="t-mono">hent</text><text x="218" y="214" text-anchor="middle" class="t-mono">aflever</text>
+                <circle cx="214" cy="22" r="4" class="hs1"/><text x="222" y="25" class="t-mono">PLC: klar</text>
+                <circle cx="214" cy="40" r="4" class="hs2"/><text x="222" y="43" class="t-mono">robot: færdig</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 4 · Skærmen -->
+          <div class="scene ex" data-i="4">
+            <div class="ex-txt">
+              <p class="fn">4 · Skærmen</p>
+              <h3>Instrumentbrættet og kontroltårnet</h3>
+              <p class="ana">HMI'en er bilens instrumentbræt: fart, advarselslamper og knapper samlet ét sted, så operatøren kan se, hvordan maskinen har det. SCADA er kontroltårnet i lufthavnen, der holder øje med alle fly på én gang.</p>
+              <p class="real"><b>Det gør jeg:</b> bygger skærmbilleder i WinCC efter ISA-101 – rolige grå farver, så det, der kræver opmærksomhed, springer i øjnene. SCADA har jeg som valgfag nu.</p>
+              <div class="used"><button type="button" data-goto="cellen">Cellen – robotcelle</button><button type="button" data-goto="fyld">Påfyldningslinje</button><button type="button" data-goto="plcsys">Festo-procesanlæg</button></div>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <rect x="16" y="10" width="288" height="200" rx="14" class="f-panel"/>
+                <rect x="28" y="22" width="264" height="152" rx="4" class="f-bg2"/>
+                <rect x="28" y="22" width="264" height="16" rx="4" class="f-line"/>
+                <text x="36" y="33" class="t-mono">VANDTANK · B101</text><text x="284" y="33" text-anchor="end" class="t-mono">AUTO</text>
+                <rect x="50" y="50" width="56" height="110" rx="3" class="s-ink2"/>
+                <rect class="lvl f-water" x="53" y="53" width="50" height="104"/>
+                <line x1="44" y1="72" x2="112" y2="72" class="s-dash"/><text x="116" y="75" class="t-warn">HØJ</text>
+                <line x1="44" y1="126" x2="112" y2="126" class="s-dash"/><text x="116" y="129" class="t-warn">LAV</text>
+                <line x1="106" y1="146" x2="138" y2="146" class="s-ink2"/>
+                <circle cx="150" cy="146" r="12" class="nd-c"/><g class="rotor"><path d="M150 137 V155 M141 146 H159" stroke="var(--ink)" stroke-width="2"/></g>
+                <circle cx="150" cy="166" r="3.5" class="pump-led" fill="var(--run)"/>
+                <text x="178" y="62" class="t-mono">TEMP</text><text x="284" y="62" text-anchor="end" class="t-val">21,4 °C</text>
+                <text x="178" y="80" class="t-mono">FLOW</text><text x="284" y="80" text-anchor="end" class="t-val">4,2 l/min</text>
+                <text x="178" y="98" class="t-mono">PUMPE</text><text x="284" y="98" text-anchor="end" class="t-val">P101</text>
+                <g class="alm"><rect x="176" y="128" width="108" height="30" rx="3" class="f-warn"/><text x="230" y="147" text-anchor="middle" class="t-alm">ALARM · HØJT NIVEAU</text></g>
+                <rect x="40" y="184" width="44" height="14" rx="3" class="f-prule"/><rect x="92" y="184" width="44" height="14" rx="3" class="f-prule"/><rect x="144" y="184" width="44" height="14" rx="3" class="f-prule"/>
+                <text x="290" y="196" text-anchor="end" class="t-pm">HMI</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 5 · Sproget -->
+          <div class="scene ex" data-i="5">
+            <div class="ex-txt">
+              <p class="fn">5 · Sproget</p>
+              <h3>Maskiner, der taler sammen</h3>
+              <p class="ana">Maskiner fra forskellige producenter taler ikke af sig selv samme sprog. Profinet, Modbus og OPC UA er tolkene og postbudet, der får beskeden frem – hurtigt og i den rigtige rækkefølge. Under det hele ligger almindelig IT: netværk, servere og virtuelle maskiner.</p>
+              <p class="real"><b>Det har jeg lavet:</b> PLC og robot over Profinet, to PLC'er der sender data til hinanden, og Modbus TCP til simulering. Virtuelle maskiner i VMware og Hyper-V.</p>
+              <div class="used"><button type="button" data-goto="cellen">Cellen – robotcelle</button><button type="button" data-goto="baand">Dobbelt transportbånd</button><button type="button" data-goto="sort">Sorteringsanlæg</button></div>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <line x1="160" y1="110" x2="59" y2="43" class="net"/><line x1="160" y1="110" x2="261" y2="43" class="net"/><line x1="160" y1="110" x2="59" y2="177" class="net"/><line x1="160" y1="110" x2="261" y2="177" class="net"/>
+                <line x1="59" y1="43" x2="160" y2="110" pathLength="100" class="pk pk1"/>
+                <line x1="160" y1="110" x2="261" y2="43" pathLength="100" class="pk pk2"/>
+                <line x1="160" y1="110" x2="59" y2="177" pathLength="100" class="pk pk3"/>
+                <line x1="261" y1="177" x2="160" y2="110" pathLength="100" class="pk pk4"/>
+                <rect x="124" y="94" width="72" height="32" rx="5" class="f-ink"/><text x="160" y="114" text-anchor="middle" class="t-on">PROFINET</text>
+                <g class="node"><rect x="22" y="26" width="74" height="34" rx="6" class="nd-c"/><text x="59" y="47" text-anchor="middle" class="t-lab">PLC</text></g>
+                <g class="node"><rect x="224" y="26" width="74" height="34" rx="6" class="nd-c"/><text x="261" y="47" text-anchor="middle" class="t-lab">ROBOT</text></g>
+                <g class="node"><rect x="22" y="160" width="74" height="34" rx="6" class="nd-c"/><text x="59" y="181" text-anchor="middle" class="t-lab">HMI</text></g>
+                <g class="node"><rect x="224" y="160" width="74" height="34" rx="6" class="nd-c"/><text x="261" y="181" text-anchor="middle" class="t-lab">SCADA · IT</text></g>
+                <text x="232" y="132" class="t-mono">OPC UA</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 6 · Balancen -->
+          <div class="scene ex" data-i="6">
+            <div class="ex-txt">
+              <p class="fn">6 · Balancen</p>
+              <h3>Cruise control for fabrikken</h3>
+              <p class="ana">Regulering er cruise control: Bilen holder 110 km/t op ad bakke og ned igen, uden at du rører speederen. På en fabrik holdes temperatur, tryk eller niveau stabilt på samme måde. Hysterese er køleskabets termostat – den giver lidt luft, så kompressoren ikke tænder og slukker hele tiden.</p>
+              <p class="real"><b>Det har jeg lavet:</b> indstillet PID-regulering og bygget on/off-regulering med hysterese og skalering af analoge signaler på Festo-procesanlægget.</p>
+              <div class="used"><button type="button" data-goto="pid">Procesregulering</button><button type="button" data-goto="plcsys">Festo-procesanlæg</button></div>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <path d="M34 24 V182 H302" class="ax"/>
+                <line x1="34" y1="84" x2="302" y2="84" class="s-dash"/>
+                <text x="300" y="76" text-anchor="end" class="t-warn">ØNSKET · 110 km/t</text>
+                <path pathLength="100" class="pid" d="M34 176 C66 176 84 60 108 60 C130 60 136 96 154 92 C170 88 180 82 200 84 L228 84 C238 84 242 108 252 106 C262 104 266 86 280 84 L302 84"/>
+                <text x="116" y="52" class="t-flow">faktisk</text>
+                <text x="252" y="124" text-anchor="middle" class="t-mono">bakke</text>
+                <text x="40" y="20" class="t-mono">fart</text><text x="302" y="198" text-anchor="end" class="t-mono">tid →</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 7 · Generalprøven -->
+          <div class="scene ex" data-i="7">
+            <div class="ex-txt">
+              <p class="fn">7 · Generalprøven</p>
+              <h3>Flysimulator først – sikkerhed hele vejen</h3>
+              <p class="ana">Piloter træner i en flysimulator, før de flyver med passagerer. Vi tester programmet på en virtuel fabrik, før det rører en rigtig maskine. Og sikkerheden bygges ind fra start, ligesom seler og airbags i en bil: nødstop, dørkontakter og en risikovurdering efter maskinreglerne.</p>
+              <p class="real"><b>Det gør jeg:</b> tester i Factory I/O og PLCSIM, laver FAT mod kravene – og nødstop og dørkontakter er en del af hverdagen i bowlinghallen.</p>
+              <div class="used"><button type="button" data-goto="sort">Sorteringsanlæg</button><button type="button" data-goto="montage">Montagerobot</button></div>
+            </div>
+            <figure class="ex-art">
+              <svg viewBox="0 0 320 220" aria-hidden="true">
+                <rect x="20" y="20" width="118" height="80" rx="8" class="vbox"/>
+                <text x="30" y="36" class="t-flow">VIRTUEL</text>
+                <line x1="32" y1="80" x2="126" y2="80" class="vline"/>
+                <rect x="34" y="64" width="16" height="16" rx="2" class="vblk mb"/>
+                <rect x="182" y="20" width="118" height="80" rx="8" class="s-ink"/>
+                <text x="192" y="36" class="t-lab">VIRKELIG</text>
+                <line x1="194" y1="80" x2="288" y2="80" class="s-ink"/>
+                <rect x="196" y="64" width="16" height="16" rx="2" class="f-flow mb mb2"/>
+                <path d="M146 60 H172 M164 53 l8 7 l-8 7" class="s-ink"/>
+                <text x="160" y="48" text-anchor="middle" class="t-mono">test</text>
+                <g class="ck"><rect x="24" y="122" width="14" height="14" rx="3" class="s-ink2"/><path d="M27 129 l3 3 l6 -7" class="tick tk1"/><text x="46" y="133" class="t-lab">Simulering</text></g>
+                <g class="ck"><rect x="24" y="148" width="14" height="14" rx="3" class="s-ink2"/><path d="M27 155 l3 3 l6 -7" class="tick tk2"/><text x="46" y="159" class="t-lab">FAT mod kravene</text></g>
+                <g class="ck"><rect x="24" y="174" width="14" height="14" rx="3" class="s-ink2"/><path d="M27 181 l3 3 l6 -7" class="tick tk3"/><text x="46" y="185" class="t-lab">Nødstop testet</text></g>
+                <circle cx="252" cy="158" r="30" class="estop-ring"/>
+                <circle cx="252" cy="158" r="28" class="f-pstr"/><circle cx="252" cy="158" r="17" class="f-puck"/>
+                <text x="252" y="206" text-anchor="middle" class="t-mono">NØDSTOP</text>
+              </svg>
+            </figure>
+          </div>
+
+          <!-- 8 · Hvorfor mig -->
+          <div class="scene ex ex-why" data-i="8">
+            <p class="fn">8 · Hvorfor mig</p>
+            <h3>Hvorfor skal I have mig med ombord?</h3>
+            <ul class="cards c2">
+              <li><b>Jeg taler begge sprog</b><span>Teknik og forretning: HHX, Brand Manager med budgetansvar og nu automation. Jeg kan forklare en løsning til både operatøren og chefen.</span></li>
+              <li><b>Fejlfinding er min hverdag</b><span>Som mekaniker holder jeg 20 bowlingbaner kørende – mekanik, el, sikkerhedskredse og computere.</span></li>
+              <li><b>Jeg lærer hurtigt</b><span>PacScript til DENSO-robotten lærte jeg fra bunden. Nye systemer får jeg hurtigt styr på.</span></li>
+              <li><b>Jeg kan lede og samarbejde</b><span>Jeg har ledet 9 guider, lagt vagtplaner og taget mig af kunderne, når det brændte på.</span></li>
+            </ul>
+            <div class="ctas"><a class="btn" href="#projekter">Se mine projekter</a><a class="back" href="#om-mig">Om mig</a><a class="back" href="#kontakt">Kontakt mig</a></div>
           </div>
         </div>
       </div>
@@ -1340,7 +1727,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     v.classList.remove('enter'); void v.offsetWidth; if(!reduce)v.classList.add('enter');
     navs.forEach(function(a){if(a.dataset.v===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     if(v.classList.contains('scroll')||v.classList.contains('story-view'))v.scrollTop=0;
-    if(id==='om-mig')requestAnimationFrame(function(){storyLayout();storyScroll();typeCode()});
+    if(stories[id])requestAnimationFrame(function(){stories[id].layout();stories[id].scroll();if(id==='om-mig')typeCode()});
     current=id;
     if(!(opts&&opts.quiet)){var h=v.querySelector('[tabindex="-1"]');if(h)h.focus({preventScroll:true})}
   }
@@ -1348,27 +1735,29 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   window.addEventListener('hashchange',function(){route(false)});
 
 
-  /* ---------- Om mig: scroll-historie ---------- */
-  var sv=document.getElementById('om-mig'), story=document.getElementById('story'), stage=document.getElementById('stage');
-  var scenes=$$('.scene',sv), railBtns=$$('#rail button'), N=scenes.length, step=0, snaps=[];
+  /* ---------- Scroll-historier (Om mig, Automation) ---------- */
   var appMQ=window.matchMedia('(min-width:900px) and (min-height:600px)');
-  function storyLayout(){
-    snaps.forEach(function(m){m.remove()}); snaps=[];
-    if(!appMQ.matches){story.style.height='';stage.style.height='';scenes.forEach(function(s){s.style.opacity='';s.style.transform='';s.classList.add('on')});return}
-    var H=sv.clientHeight; if(!H)return; step=Math.round(H*0.85);
-    stage.style.height=H+'px'; story.style.height=(H+step*(N-1))+'px';
-    for(var i=0;i<N;i++){var m=document.createElement('span');m.className='snap';m.style.top=(i*step)+'px';story.appendChild(m);snaps.push(m)}
+  function Story(sec){
+    var st=$('.story',sec), sg=$('.stage',sec), sc=$$('.scene',sec), rb=$$('.rail button',sec), n=sc.length, stp=0, snaps=[], tick=false;
+    function layout(){
+      snaps.forEach(function(m){m.remove()}); snaps=[];
+      if(!appMQ.matches){st.style.height='';sg.style.height='';sc.forEach(function(s){s.style.opacity='';s.style.transform='';s.classList.add('on');s.removeAttribute('aria-hidden')});return}
+      var H=sec.clientHeight; if(!H)return; stp=Math.round(H*0.85);
+      sg.style.height=H+'px'; st.style.height=(H+stp*(n-1))+'px';
+      for(var i=0;i<n;i++){var m=document.createElement('span');m.className='snap';m.style.top=(i*stp)+'px';st.appendChild(m);snaps.push(m)}
+    }
+    function scroll(){
+      if(!appMQ.matches||!stp)return;
+      var p=sec.scrollTop/stp, act=Math.max(0,Math.min(n-1,Math.round(p)));
+      sc.forEach(function(s,i){var d=p-i,o=Math.max(0,Math.min(1,1-Math.abs(d)*1.7));s.style.opacity=o.toFixed(3);s.style.transform=reduce?'none':'translateY('+(-d*40).toFixed(1)+'px)';s.classList.toggle('on',i===act);s.setAttribute('aria-hidden',i===act?'false':'true')});
+      rb.forEach(function(b,i){if(i===act)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('done',i<act)});
+    }
+    sec.addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(function(){tick=false;scroll()})}},{passive:true});
+    rb.forEach(function(b){b.addEventListener('click',function(){var i=+b.dataset.i;if(appMQ.matches)sec.scrollTo({top:i*stp,behavior:reduce?'auto':'smooth'});else sc[i].scrollIntoView({behavior:reduce?'auto':'smooth'})})});
+    return {layout:layout,scroll:scroll};
   }
-  function storyScroll(){
-    if(!appMQ.matches||!step)return;
-    var p=sv.scrollTop/step, act=Math.max(0,Math.min(N-1,Math.round(p)));
-    scenes.forEach(function(s,i){var d=p-i,o=Math.max(0,Math.min(1,1-Math.abs(d)*1.7));s.style.opacity=o.toFixed(3);s.style.transform=reduce?'none':'translateY('+(-d*40).toFixed(1)+'px)';s.classList.toggle('on',i===act);s.setAttribute('aria-hidden',i===act?'false':'true')});
-    railBtns.forEach(function(b,i){if(i===act)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');b.classList.toggle('done',i<act)});
-  }
-  var ticking=false;
-  sv.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(function(){ticking=false;storyScroll()})}},{passive:true});
-  railBtns.forEach(function(b){b.addEventListener('click',function(){var i=+b.dataset.i;if(appMQ.matches)sv.scrollTo({top:i*step,behavior:reduce?'auto':'smooth'});else scenes[i].scrollIntoView({behavior:reduce?'auto':'smooth'})})});
-  window.addEventListener('resize',function(){if(current==='om-mig'){storyLayout();storyScroll()}});
+  var stories={}; $$('.story-view').forEach(function(sec){stories[sec.id]=Story(sec)});
+  window.addEventListener('resize',function(){var s=stories[current];if(s){s.layout();s.scroll()}});
 
   /* ---------- Om mig: koden skrives, mens man ser på ---------- */
   var code=document.getElementById('code'), typed=false;
@@ -1409,6 +1798,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   route(true);
   if(boot){
     start.addEventListener('click',done); skip.addEventListener('click',done);
+    var explain=$('#explain'); if(explain)explain.addEventListener('click',function(){if(location.hash!=='#automation')location.hash='automation';show('automation',{quiet:true});done()});
     openBoot();
   }
   var brand=$('.brand');

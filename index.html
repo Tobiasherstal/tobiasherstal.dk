@@ -83,6 +83,10 @@ button{font:inherit;color:inherit}
 .log .dots{flex:1;border-bottom:1px dotted var(--panel-rule);transform:translateY(-4px);min-width:12px}
 .log .v{color:var(--panel-ink);text-align:right}
 .log .ok{color:var(--panel-val)}
+.log .sem>span{white-space:nowrap}
+.log .proc{color:var(--panel-str);animation:proc 1.6s ease-in-out infinite}
+@keyframes proc{50%{opacity:.5}}
+.log .wait{color:var(--panel-mute)}
 .js .log li{opacity:0}
 .js .log li.in{opacity:1;transition:opacity .15s}
 .boot-foot{display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--panel-rule)}
@@ -666,9 +670,9 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     <div class="boot-head"><span><b>TH-OS</b> · firmware v2027.06</span><button class="skip" id="skip" type="button">Spring over ›</button></div>
     <h2 class="boot-title" id="boot-title">Tobias Herstal<small>// systemet starter · færdiguddannet juni 2027</small></h2>
     <ul class="log" id="log">
-      <li><span class="k">Status</span><span class="dots"></span><span class="v ok">OK</span></li>
       <li><span class="k">Bruger</span><span class="dots"></span><span class="v">Tobias Herstal, 30 år</span></li>
       <li><span class="k">Uddannelse</span><span class="dots"></span><span class="v">Automationsteknolog AK · EK Lygten</span></li>
+      <li><span class="k">Status</span><span class="dots"></span><span class="v sem"><span class="ok">Sem 1 OK</span> · <span class="ok">Sem 2 OK</span> · <span class="proc">Sem 3 Processing</span> · <span class="wait">Sem 4 Waiting</span></span></li>
       <li><span class="k">Søger</span><span class="dots"></span><span class="v">Praktik 11.01–19.03.2027</span></li>
       <li><span class="k">Lokation</span><span class="dots"></span><span class="v">København NV</span></li>
       <li><span class="k">Kørekort</span><span class="dots"></span><span class="v">B</span></li>

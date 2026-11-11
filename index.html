@@ -281,6 +281,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .list{display:grid;gap:7px;font-size:15px}
 .list li{position:relative;padding-left:17px}
 .list li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:1.5px;background:var(--flow)}
+@media (min-width:900px) and (max-height:700px){.art{max-height:26vh}.pj-body{gap:8px}.pj-body h3{font-size:22px}.list{font-size:14px;gap:4px;line-height:1.45}.pj-meta,.pj-role{font-size:14px}}
 .quote{border-left:3px solid var(--flow);padding:2px 0 2px 12px;font-style:italic;color:var(--muted)}
 
 /* ================= KOMPETENCER ================= */
@@ -425,6 +426,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .scene .txt{display:grid;gap:14px}
 .sc-main{display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(18px,3vw,40px);align-items:center}
 .sc-main .ide{max-height:100%}
+@media (min-width:900px) and (max-height:700px){.sc-main .code{font-size:12.5px;line-height:1.45;padding:10px 0 12px}}
 .hello{display:grid;gap:14px}
 .hello h3{font-size:clamp(32px,4vw,52px)}
 .hello p{font-size:clamp(16px,1.35vw,19px);line-height:1.6;color:var(--muted);max-width:44ch}
@@ -441,6 +443,20 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .route li.here::before{background:var(--flow);border-color:var(--flow);box-shadow:0 0 0 4px color-mix(in srgb,var(--flow) 20%,transparent)}
 .route b{font:700 15px/1.2 var(--f-display)}
 .route span{font:500 12px/1.2 var(--f-mono);color:var(--muted)}
+/* Baggrund: tekst til venstre, lodret rute til højre. Hvorfor(): citat */
+.sc-bag{display:grid!important;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(20px,3.5vw,48px);align-items:center}
+.bag-l{display:flex;flex-direction:column;gap:16px;min-width:0}
+.bag-l .txt p{font-size:clamp(15px,1.2vw,17px);line-height:1.6}
+.route.v{grid-template-columns:minmax(0,1fr);margin:0}
+.route.v::before{display:none}
+.route.v li{grid-template-columns:7.2em 5.4em minmax(0,1fr);align-items:baseline;column-gap:10px;padding:4px 0 4px 26px}
+.route.v li::before{top:7px;z-index:1}
+.route.v li:not(:last-child)::after{content:"";position:absolute;left:5px;top:13px;bottom:-13px;width:2px;background:var(--ink)}
+.route.v em{font-style:normal;font-size:14px;line-height:1.35;color:var(--muted)}
+.route.v li.here em{color:var(--ink)}
+.why{display:grid;gap:14px;max-width:62ch;margin:0;padding:20px 26px;border-radius:14px;border:1px solid var(--line);border-left:3px solid var(--flow);background:var(--surface)}
+.why p{font-size:clamp(16px,1.3vw,18.5px);line-height:1.6;color:var(--muted)}
+.why .w1{font:600 clamp(21px,2vw,28px)/1.3 var(--f-display);letter-spacing:-.01em;color:var(--ink);text-wrap:balance}
 .cards{display:grid;gap:12px}
 .cards.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cards.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -469,6 +485,10 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   .sc-main,.two{grid-template-columns:minmax(0,1fr)!important}
   .route{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:14px}
   .route::before{display:none}
+  .sc-bag{grid-template-columns:minmax(0,1fr)!important}
+  .route.v{grid-template-columns:minmax(0,1fr);row-gap:0}
+  .route.v li{grid-template-columns:auto minmax(0,1fr);row-gap:2px}
+  .route.v em{grid-column:1/-1}
   .cards.c3,.cards.c2{grid-template-columns:minmax(0,1fr)}
 }
 /* skrive-effekt */
@@ -582,7 +602,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
           <div class="t-head"><h3>Om mig</h3><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
           <p class="t-text">Født og opvokset i Odense, i København siden 2021. Mekaniker på 20 bowlingbaner ved siden af studiet – og før det drift, budget og medarbejdere i rejsebranchen. Baggrund, styrker, svagheder og fritid.</p>
           <ul class="chips"><li>Lærenem</li><li>Nysgerrig</li><li>Ansvarsbevidst</li><li>Velovervejet</li><li>Optimerende</li><li>Omstillingsparat</li></ul>
-          <p class="t-foot">MAIN · Profil · Baggrund · Styrker · Svagheder · Fritid · Søger</p>
+          <p class="t-foot">MAIN · Profil · Baggrund · Hvorfor · Styrker · Svagheder · Fritid · Søger</p>
         </a>
         <a class="tile t-wide" href="#karriere">
           <div class="t-head"><h3>Karriere</h3><span class="t-go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>
@@ -635,10 +655,11 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
             <li><button type="button" data-i="0"><i>0</i>MAIN</button></li>
             <li><button type="button" data-i="1"><i>1</i>Profil()</button></li>
             <li><button type="button" data-i="2"><i>2</i>Baggrund()</button></li>
-            <li><button type="button" data-i="3"><i>3</i>Styrker()</button></li>
-            <li><button type="button" data-i="4"><i>4</i>Svagheder()</button></li>
-            <li><button type="button" data-i="5"><i>5</i>Fritid()</button></li>
-            <li><button type="button" data-i="6"><i>6</i>Søger()</button></li>
+            <li><button type="button" data-i="3"><i>3</i>Hvorfor()</button></li>
+            <li><button type="button" data-i="4"><i>4</i>Styrker()</button></li>
+            <li><button type="button" data-i="5"><i>5</i>Svagheder()</button></li>
+            <li><button type="button" data-i="6"><i>6</i>Fritid()</button></li>
+            <li><button type="button" data-i="7"><i>7</i>Søger()</button></li>
           </ol>
 
           <!-- 0 · MAIN -->
@@ -660,10 +681,11 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
                 <div class="ln" data-n="12"><span> </span></div>
                 <div class="ln" data-n="13"><span><span class="nm">Profil</span>();      <span class="cm">// hvem jeg er</span></span></div>
                 <div class="ln" data-n="14"><span><span class="nm">Baggrund</span>();    <span class="cm">// fra Odense til automation</span></span></div>
-                <div class="ln" data-n="15"><span><span class="nm">Styrker</span>();     <span class="cm">// det, I kan regne med</span></span></div>
-                <div class="ln" data-n="16"><span><span class="nm">Svagheder</span>();   <span class="cm">// og det, jeg arbejder på</span></span></div>
-                <div class="ln" data-n="17"><span><span class="nm">Fritid</span>();      <span class="cm">// uden for arbejdet</span></span></div>
-                <div class="ln" data-n="18"><span><span class="nm">Søger</span>();       <span class="cm">// det, jeg leder efter</span></span></div>
+                <div class="ln" data-n="15"><span><span class="nm">Hvorfor</span>();     <span class="cm">// derfor automation</span></span></div>
+                <div class="ln" data-n="16"><span><span class="nm">Styrker</span>();     <span class="cm">// det, I kan regne med</span></span></div>
+                <div class="ln" data-n="17"><span><span class="nm">Svagheder</span>();   <span class="cm">// og det, jeg arbejder på</span></span></div>
+                <div class="ln" data-n="18"><span><span class="nm">Fritid</span>();      <span class="cm">// uden for arbejdet</span></span></div>
+                <div class="ln" data-n="19"><span><span class="nm">Søger</span>();       <span class="cm">// det, jeg leder efter</span></span></div>
               </div>
             </div>
             <div class="hello">
@@ -687,23 +709,41 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 
           <!-- 2 · Baggrund -->
           <div class="scene sc-bag" data-i="2">
-            <p class="fn">Baggrund()</p>
-            <h3>Fra Odense til automation</h3>
-            <p class="txt wide">Jeg er født i 1996 og vokset op i Odense, hvor jeg også tog HHX. Efter gymnasiet ville jeg ud: fire uger på et kontor i Hong Kong og sprogskole i Miami. Derefter blev det detailhandel hos Jack &amp; Jones og en årrække i rejsebranchen som guide, destinationschef og til sidst Brand Manager. I 2021 flyttede jeg til København. Da Summitweek lukkede i 2024, tog jeg en reboot og valgte en uddannelse, hvor jeg kan bruge min trang til at forstå, hvordan ting virker.</p>
-            <ol class="route" aria-label="Steder jeg har boet og arbejdet">
-              <li><b>Odense</b><span>1996 – 2021</span></li>
-              <li><b>Hong Kong</b><span>2016</span></li>
-              <li><b>Miami</b><span>2016</span></li>
-              <li><b>Alanya</b><span>2019</span></li>
-              <li><b>Mallorca</b><span>2021 – 22</span></li>
-              <li><b>Val Thorens</b><span>2022 – 24</span></li>
-              <li><b>Ayia Napa</b><span>2023 – 24</span></li>
-              <li class="here"><b>København</b><span>2021 – nu</span></li>
+            <div class="bag-l">
+              <p class="fn">Baggrund()</p>
+              <h3>Fra Odense til automation</h3>
+              <div class="txt">
+                <p>Jeg er født i 1996 og vokset op i Odense, hvor jeg tog HHX. Mit sabbatår gik med genoptræning efter en knæoperation – og med Hong Kong og Miami. Bagefter kom Jack &amp; Jones, guideskole og sæsoner i Alperne og ved Middelhavet, indtil corona sendte os hjem to uger før tid i 2020.</p>
+                <p>Efter et år med job på Bryggeriet Flakhaven og hos Brdr. Simonsen og et halvt år på Rødding Højskole flyttede jeg i september 2021 til København. Da Summitweek lukkede i 2024, tog jeg en reboot og valgte automation.</p>
+              </div>
+            </div>
+            <ol class="route v" aria-label="Steder jeg har boet og arbejdet">
+                <li><b>Odense</b><span>1996 – 2021</span><em>Opvækst, HHX, Jack &amp; Jones og job mellem sæsonerne</em></li>
+                <li><b>Hong Kong</b><span>2016</span><em>Fire uger på kontor</em></li>
+                <li><b>Miami</b><span>2016</span><em>Sprogskole</em></li>
+                <li><b>Wagrain</b><span>2018 – 19</span><em>Guide, vintersæson</em></li>
+                <li><b>Alanya</b><span>2019</span><em>Guide, sommersæson</em></li>
+                <li><b>Bad Gastein</b><span>2019 – 20</span><em>Supervisor – sendt hjem før tid pga. corona</em></li>
+                <li><b>Rødding</b><span>2021</span><em>Højskole</em></li>
+                <li><b>Mallorca</b><span>2021 – 22</span><em>Destinationschef</em></li>
+                <li><b>Val Thorens</b><span>2022 – 24</span><em>Destinationschef, vinter</em></li>
+                <li><b>Ayia Napa</b><span>2023 – 24</span><em>Destinationschef, sommer</em></li>
+                <li class="here"><b>København</b><span>2021 – nu</span><em>Startede i Espresso House i lufthavnen – nu EK Lygten</em></li>
             </ol>
           </div>
 
-          <!-- 3 · Styrker -->
-          <div class="scene sc-str" data-i="3">
+          <!-- 3 · Hvorfor -->
+          <div class="scene sc-why" data-i="3">
+            <p class="fn">Hvorfor()</p>
+            <h3>Hvorfor automation?</h3>
+            <blockquote class="why">
+              <p class="w1">Jeg lever for at finde fejl og fikse ting – fysisk eller teknisk, ved en pc eller en maskine.</p>
+              <p>Jeg vil forstå, hvad der ligger bag, og hvad der får det hele til at fungere. Det, der motiverer mig mest, er at se det, jeg har lavet, blive brugt af andre og gøre en forskel i deres arbejde og hverdag.</p>
+            </blockquote>
+          </div>
+
+          <!-- 4 · Styrker -->
+          <div class="scene sc-str" data-i="4">
             <p class="fn">Styrker()</p>
             <h3>Det kan I regne med</h3>
             <ul class="cards c3">
@@ -716,32 +756,33 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
             </ul>
           </div>
 
-          <!-- 4 · Svagheder -->
-          <div class="scene sc-weak" data-i="4">
+          <!-- 5 · Svagheder -->
+          <div class="scene sc-weak" data-i="5">
             <p class="fn">Svagheder()</p>
             <h3>Og det, jeg arbejder på</h3>
-            <ul class="cards c2 weak">
-              <li><b>Perfektionist</b><span>Jeg kan bruge for lang tid på detaljer.</span><span class="fix"><i>Det gør jeg ved det</i>Aftaler på forhånd, hvad der er godt nok, og sætter en tidsramme.</span></li>
-              <li><b>Vil selv finde løsningen</b><span>Jeg vil gerne selv finde svaret, før jeg spørger.</span><span class="fix"><i>Det gør jeg ved det</i>Sætter en grænse for, hvor længe jeg leder, før jeg spørger en kollega.</span></li>
+            <ul class="cards c3 weak">
+              <li><b>Fortaber mig i detaljen</b><span>Når noget fanger mig, vil jeg forstå det helt til bunds – og jeg retter og optimerer gerne på ting, der hverken er et krav eller nødvendige.</span><span class="fix"><i>Det gør jeg ved det</i>Spørger mig selv, om det bringer opgaven videre, og gemmer resten til senere.</span></li>
+              <li><b>Leverer på stregen</b><span>Jeg udnytter al den tid, jeg har, og leverer det færdige arbejde i sidste øjeblik. Er opgaven stor eller ukonkret, kan jeg miste forbindelsen til, hvad der skal nås.</span><span class="fix"><i>Det gør jeg ved det</i>Deler opgaven op i delopgaver og gør målet konkret fra start.</span></li>
+              <li><b>Spørger ikke om hjælp</b><span>Sidder jeg fast, kæmper jeg mig frem, til jeg selv har løst det. Det lykkes – men jeg presser citronen mere end højst nødvendigt.</span><span class="fix"><i>Det gør jeg ved det</i>Sætter en grænse for, hvor længe jeg leder, før jeg spørger en kollega, der kan det.</span></li>
             </ul>
           </div>
 
-          <!-- 5 · Fritid -->
-          <div class="scene sc-free" data-i="5">
+          <!-- 6 · Fritid -->
+          <div class="scene sc-free" data-i="6">
             <p class="fn">Fritid()</p>
             <h3>Uden for arbejdet</h3>
             <ul class="cards c3 free">
               <li><b>Automation derhjemme</b><span>Smart belysning i lejligheden og andre ting, der kan styres smartere.</span></li>
-              <li><b>Musik og medier</b><span>Egne medieprojekter med musik, video og AI-værktøjer – og playlister til enhver lejlighed.</span></li>
-              <li><b>Nordisk mytologi og quiz</b><span>Historierne om de nordiske guder og alt, hvad der kan bruges til en quiz.</span></li>
-              <li><b>Krydsord</b><span>Gerne de engelske.</span></li>
+              <li><b>IT-support for venner og familie</b><span>Den, de ringer til, når computeren, telefonen eller netværket driller.</span></li>
+              <li><b>Musik og musikquiz</b><span>Elsker Hitster og musikquizzer, laver playlister til enhver lejlighed og egne projekter med musik, video og AI-værktøjer.</span></li>
+              <li><b>På stadion</b><span>En tur på stadion med familie og venner betyder meget for mig.</span></li>
               <li><b>Træning</b><span>Cirkeltræning for hele kroppen og sauna bagefter.</span></li>
               <li><b>Spil</b><span>Især tycoon- og managementspil, hvor det handler om at optimere.</span></li>
             </ul>
           </div>
 
-          <!-- 6 · Søger -->
-          <div class="scene sc-seek" data-i="6">
+          <!-- 7 · Søger -->
+          <div class="scene sc-seek" data-i="7">
             <p class="fn">Søger()</p>
             <h3>Det leder jeg efter</h3>
             <ul class="cards c2 seek">
@@ -972,7 +1013,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 <article class="pj" id="pj-plcsys" data-p="plcsys">
   <div>
     <p class="inst"><b>PB_Procesanlaeg</b> · projekt-blok</p>
-    <div class="blk"><div class="blk-head">Festo-procesanlæg<span>TIA Portal · analog</span></div>
+    <div class="blk"><div class="blk-head">Festo-procesanlæg<span>TIA Portal · S7-1500 · HMI</span></div>
       <div class="art"><svg viewBox="0 0 320 220" aria-hidden="true">
         <rect x="150" y="30" width="100" height="150" rx="4" class="s-ink"/>
         <rect class="lvl f-water" x="154" y="34" width="92" height="142" opacity=".85"/>
@@ -987,20 +1028,22 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
         <text x="200" y="200" text-anchor="middle" class="t-mono">hysterese</text><text x="274" y="196" text-anchor="middle" class="t-mono">ventil</text>
       </svg></div>
       <div class="pins">
-        <div class="pin-in"><ul><li class="pin"><span class="pk">IN · Opgave</span><span class="pv">Programmere Festo-procesanlægget</span></li><li class="pin"><span class="pk">IN · Signaler</span><span class="pv">Analoge følere og aktuatorer</span></li></ul></div>
-        <div class="pin-out"><ul><li class="pin"><span class="pk">OUT · Min rolle</span><span class="pv">Hele opgaven</span></li><li class="pin"><span class="pk">OUT · Funktioner</span><span class="pv ok">Skalering og hysterese</span></li></ul></div>
+        <div class="pin-in"><ul><li class="pin"><span class="pk">IN · Opgave</span><span class="pv">Styring af vandtanken på Festo-standen</span></li><li class="pin"><span class="pk">IN · Signaler</span><span class="pv">Niveau, flow, tryk og temperatur</span></li></ul></div>
+        <div class="pin-out"><ul><li class="pin"><span class="pk">OUT · Min rolle</span><span class="pv">Hele opgaven</span></li><li class="pin"><span class="pk">OUT · Funktioner</span><span class="pv ok">Regulering, alarmer og HMI</span></li></ul></div>
       </div></div>
   </div>
   <div class="pj-body">
     <p class="pj-meta">PLC-systemer · 2. semester · forår 2026</p>
     <h3>Festo-procesanlægget i TIA Portal</h3>
-    <p class="pj-role">Jeg lavede hele opgaven.</p>
+    <p class="pj-role">Jeg lavede hele opgaven – fra I/O-liste til HMI og test ved standen.</p>
     <ul class="list">
-      <li>Analoge signaler omregnet med converter-funktioner i TIA Portal, så rå værdier bliver til måleværdier, programmet kan bruge</li>
-      <li>Hysterese på grænseværdierne, så udgangene ikke slår til og fra hele tiden</li>
-      <li>Programmeret til hele Festo-anlægget</li>
+      <li>PLC-program og HMI til vandtanken på Festo-procesanlægget med en Siemens S7-1500</li>
+      <li>Skalering i egne funktioner (FC): temperaturen i tanken omregnet fra råværdi til °C og pumpens hastighed fra setpunkt til analog udgang</li>
+      <li>On/off-regulering af varmelegemet med hysterese i en funktionsblok (FB), så det ikke slår til og fra hele tiden</li>
+      <li>Pumpe og køling styret af en genbrugelig FB med setpunkter fra HMI'en</li>
+      <li>Status og alarmer for høj, lav og OK temperatur vist på HMI'en</li>
     </ul>
-  <ul class="tech"><li>TIA Portal</li><li>Analoge signaler</li><li>Skalering</li><li>Hysterese</li><li>Festo</li></ul>
+  <ul class="tech"><li>TIA Portal</li><li>S7-1500</li><li>HMI</li><li>Skalering</li><li>Hysterese</li><li>Festo</li></ul>
   </div>
 </article>
 

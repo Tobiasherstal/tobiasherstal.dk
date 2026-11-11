@@ -87,6 +87,8 @@ button{font:inherit;color:inherit}
 .log .proc{color:var(--panel-str);animation:proc 1.6s ease-in-out infinite}
 @keyframes proc{50%{opacity:.5}}
 .log .wait{color:var(--panel-mute)}
+.log .wait-in{color:var(--panel-str)}
+.log .wait-in::after{content:"";display:inline-block;width:7px;height:1em;margin-left:4px;vertical-align:-2px;background:var(--panel-str);animation:caret .8s steps(1) infinite}
 .js .log li{opacity:0}
 .js .log li.in{opacity:1;transition:opacity .15s}
 .boot-foot{display:flex;align-items:center;gap:14px 20px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--panel-rule)}
@@ -674,11 +676,11 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
       <li><span class="k">Uddannelse</span><span class="dots"></span><span class="v">Automationsteknolog AK · EK Lygten</span></li>
       <li><span class="k">Status</span><span class="dots"></span><span class="v sem"><span class="ok">Sem 1 OK</span> · <span class="ok">Sem 2 OK</span> · <span class="proc">Sem 3 Processing</span> · <span class="wait">Sem 4 Waiting</span></span></li>
       <li><span class="k">Søger</span><span class="dots"></span><span class="v">Praktik 11.01–19.03.2027</span></li>
-      <li><span class="k">Lokation</span><span class="dots"></span><span class="v">København NV</span></li>
-      <li><span class="k">Kørekort</span><span class="dots"></span><span class="v">B</span></li>
+      <li><span class="k">Lokation</span><span class="dots"></span><span class="v">IP-adresse: Tomsgårdsvej, KBH NV, 2400</span></li>
+      <li><span class="k">Driver</span><span class="dots"></span><span class="v">Kørekort B</span></li>
       <li><span class="k">Sprogpakker</span><span class="dots"></span><span class="v">da-DK · en-GB · sv-SE</span></li>
-      <li><span class="k">Profinet</span><span class="dots"></span><span class="v ok">link oppe</span></li>
-      <li><span class="k">Program</span><span class="dots"></span><span class="v ok">MAIN indlæst · klar</span></li>
+      <li><span class="k">Network Access</span><span class="dots"></span><span class="v ok">Forbundet</span></li>
+      <li><span class="k">INFO</span><span class="dots"></span><span class="v wait-in">Waiting input</span></li>
     </ul>
     <div class="boot-foot">
       <p class="boot-q">Hvad er en automationsteknolog – og hvorfor skal I have mig med ombord?</p>

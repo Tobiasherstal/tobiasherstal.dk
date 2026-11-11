@@ -460,6 +460,10 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .cards{display:grid;gap:12px}
 .cards.c3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .cards.c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.cards.c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.cards .wide{grid-column:span 2}
+.free .wide{border-left:3px solid var(--flow)}
+@media (min-width:900px) and (max-height:700px){.free li{padding:12px 15px}.free span{font-size:14px;line-height:1.45}.free b{font-size:17px}}
 .cards li{display:grid;gap:6px;align-content:start;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:var(--surface)}
 .cards b{display:flex;align-items:center;justify-content:space-between;gap:8px;font:700 18px/1.2 var(--f-display)}
 .cards b em{font:600 11px/1 var(--f-mono);font-style:normal;color:var(--run);background:color-mix(in srgb,var(--run) 14%,transparent);padding:4px 7px;border-radius:5px}
@@ -489,7 +493,8 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   .route.v{grid-template-columns:minmax(0,1fr);row-gap:0}
   .route.v li{grid-template-columns:auto minmax(0,1fr);row-gap:2px}
   .route.v em{grid-column:1/-1}
-  .cards.c3,.cards.c2{grid-template-columns:minmax(0,1fr)}
+  .cards.c3,.cards.c2,.cards.c4{grid-template-columns:minmax(0,1fr)}
+  .cards .wide{grid-column:auto}
 }
 
 /* ================= BOOT: spørgsmål + to valg ================= */
@@ -893,12 +898,12 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
           <div class="scene sc-free" data-i="6">
             <p class="fn">Fritid()</p>
             <h3>Uden for arbejdet</h3>
-            <ul class="cards c3 free">
+            <ul class="cards c4 free">
+              <li class="wide"><b>Konkurrencemenneske</b><span>Musikquiz, flest opgaver klaret på en dag eller hurtigst til at løbe i Netto efter Snickers-is – jeg er et udpræget konkurrencemenneske. Det er sjovest at vinde, men at være med og bidrage til de stærke præstationer skyder dopaminen helt i vejret.</span></li>
+              <li class="wide"><b>Sport</b><span>Jeg dyrker gerne al den sport, jeg kan og har tid til – både de klassiske og de skæve og sjove former. Så længe jeg har svedt og er rød i hovedet, tæller det. Og en tur på stadion med familie og venner betyder meget for mig.</span></li>
               <li><b>Automation derhjemme</b><span>Smart belysning i lejligheden og andre ting, der kan styres smartere.</span></li>
               <li><b>IT-support for venner og familie</b><span>Den, de ringer til, når computeren, telefonen eller netværket driller.</span></li>
-              <li><b>Musik og musikquiz</b><span>Elsker Hitster og musikquizzer, laver playlister til enhver lejlighed og egne projekter med musik, video og AI-værktøjer.</span></li>
-              <li><b>På stadion</b><span>En tur på stadion med familie og venner betyder meget for mig.</span></li>
-              <li><b>Træning</b><span>Cirkeltræning for hele kroppen og sauna bagefter.</span></li>
+              <li><b>Musik og medier</b><span>Playlister til enhver lejlighed og egne projekter med musik, video og AI-værktøjer.</span></li>
               <li><b>Spil</b><span>Især tycoon- og managementspil, hvor det handler om at optimere.</span></li>
             </ul>
           </div>

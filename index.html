@@ -7,6 +7,7 @@
 <meta name="description" content="Tobias Herstal, automationsteknologstuderende på EK Lygten. Søger praktik 11. januar til 19. marts 2027. Projekter, karriere, kompetencer og CV.">
 <meta property="og:title" content="Tobias Herstal · Automationsteknolog">
 <meta property="og:description" content="Søger praktik 11. januar til 19. marts 2027. Projekter, karriere, kompetencer og CV.">
+<meta property="og:image" content="https://tobiasherstal.dk/tobias.jpg">
 <meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23fff' stroke='%232B4BE0' stroke-width='4'/%3E%3Cpath d='M16 21 H28 C32 21 34 23 34 27 V43 M23 21 V43 M34 32 H46 M46 21 V43' fill='none' stroke='%23121C27' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -672,6 +673,17 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .kp-mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px 12px;font-size:13px;line-height:1.25}
 .kp-mini li{display:flex;align-items:baseline;gap:7px;min-width:0}
 .kp-mini li::before{content:"";width:6px;height:6px;border-radius:1.5px;background:var(--flow);flex:none;transform:translateY(-1px)}
+
+/* ================= FOTO ================= */
+.me{display:block;flex:none;width:var(--me,84px);height:var(--me,84px);border-radius:50%;object-fit:cover;padding:3px;border:2px solid var(--flow);background:var(--surface)}
+.hero-id{display:flex;align-items:center;gap:clamp(14px,1.8vw,22px);min-width:0}
+.hero-id .me{--me:clamp(62px,6vw,92px)}
+.sc-prof .lcol{display:grid;gap:18px;align-content:start}
+.sc-prof .me{--me:clamp(72px,7vw,104px)}
+@media (min-width:900px) and (max-height:700px){.sc-prof .me{--me:64px}.sc-prof .lcol{gap:12px}}
+.kt-hi{display:flex;align-items:center;gap:16px}
+.kt-hi>div{display:grid;gap:6px}
+.kt-main .me{--me:clamp(64px,6vw,84px);background:var(--panel);border-color:var(--panel-key)}
 </style>
 
 <!-- ================= BOOT ================= -->
@@ -729,9 +741,12 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 <section class="view" id="oversigt" data-v="oversigt" aria-label="Oversigt">
   <div class="wrap view-in">
     <div class="hero">
-      <div>
-        <p class="eyebrow">Automationsteknologstuderende · EK Lygten · 2025-2027</p>
-        <h1 tabindex="-1">Tobias Herstal</h1>
+      <div class="hero-id">
+        <img class="me" src="tobias.jpg" width="400" height="400" alt="Portræt af Tobias Herstal">
+        <div>
+          <p class="eyebrow">Automationsteknologstuderende · EK Lygten · 2025-2027</p>
+          <h1 tabindex="-1">Tobias Herstal</h1>
+        </div>
       </div>
       <div class="hero-r">
         <p class="sub">Søger <b>10 ugers praktik fra 11. januar 2027</b> med fokus på programmering, integration og fejlfinding. Færdiguddannet juni 2027.</p>
@@ -841,7 +856,10 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
           <div class="scene sc-prof" data-i="1">
             <p class="fn">Profil()</p>
             <div class="two">
-              <h3 class="big">Jeg elsker at dykke ned i fejl, forstå dem og løse dem. Især dem, andre ikke kunne.</h3>
+              <div class="lcol">
+                <img class="me" src="tobias.jpg" width="400" height="400" alt="Portræt af Tobias Herstal" loading="lazy">
+                <h3 class="big">Jeg elsker at dykke ned i fejl, forstå dem og løse dem. Især dem, andre ikke kunne.</h3>
+              </div>
               <div class="txt">
                 <p>Jeg har projekterfaring i PLC-, HMI- og robotprogrammering. Ved siden af studiet er jeg mekaniker i Bowlernes Hal Grøndal, hvor jeg har fingrene i både maskinerne og computerne, der driver de 20 bowlingbaner.</p>
                 <p>Inden uddannelsen havde jeg ansvar for drift, budget og medarbejdere i rejsebranchen, så jeg ser både teknikken og forretningen bag en løsning. Jeg sætter mig hurtigt ind i nye systemer og trives i både små og store teams, ude ved anlægget og på kontoret.</p>
@@ -1704,8 +1722,13 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     <div class="v-body">
       <div class="kt">
         <div class="kt-main">
-          <h3>Lad os tage en snak</h3>
-          <p class="t-text">Jeg svarer hurtigt og kommer gerne forbi til en samtale.</p>
+          <div class="kt-hi">
+            <img class="me" src="tobias.jpg" width="400" height="400" alt="Portræt af Tobias Herstal" loading="lazy">
+            <div>
+              <h3>Lad os tage en snak</h3>
+              <p class="t-text">Jeg svarer hurtigt og kommer gerne forbi til en samtale.</p>
+            </div>
+          </div>
           <div class="kt-row"><span class="k">Telefon</span><span class="v">+45 28 43 47 13</span><button class="copy" type="button" data-copy="+45 28 43 47 13">Kopiér</button></div>
           <div class="kt-row"><span class="k">Mail</span><span class="v">tbh@live.dk</span><button class="copy" type="button" data-copy="tbh@live.dk">Kopiér</button></div>
           <div class="kt-row"><span class="k">Web</span><span class="v">tobiasherstal.dk</span></div>

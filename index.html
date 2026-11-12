@@ -684,6 +684,32 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 .kt-hi{display:flex;align-items:center;gap:16px}
 .kt-hi>div{display:grid;gap:6px}
 .kt-main .me{--me:clamp(64px,6vw,84px);background:var(--panel);border-color:var(--panel-key)}
+
+/* ================= OVERSIGT: LAVE SKÆRME ================= */
+@media (min-width:900px) and (min-height:600px){
+  #oversigt .grid{grid-template-rows:repeat(2,minmax(min-content,1fr))}
+  .js #oversigt{overflow-y:auto;scrollbar-width:thin}
+}
+@media (min-width:900px) and (max-height:760px){
+  .hero h1{font-size:clamp(38px,4.3vw,56px)}
+  .hero-id .me{--me:clamp(56px,5vw,70px)}
+  .hero p.sub{font-size:15px}
+  .hero-r{gap:8px}
+  .ex-link{font-size:13.5px;padding-block:4px}
+  #oversigt .grid{gap:10px}
+  #oversigt .tile{padding:14px 18px;gap:9px}
+  #oversigt .t-head h3{font-size:20px}
+  #oversigt .t-go{width:30px;height:30px}
+  #oversigt .t-text{font-size:14px;line-height:1.45}
+  #oversigt .tile .chips{gap:5px}
+  #oversigt .tile .chips li{padding:4px 9px;font-size:12.5px}
+  .kontakt-mini{grid-template-columns:auto 1fr;align-items:baseline;gap:7px 12px;font-size:15px}
+  .kontakt-mini span{margin-top:0}
+}
+@media (min-width:900px) and (max-height:700px){
+  #oversigt .t-foot{display:none}
+  .fl span{font-size:11.5px}
+}
 </style>
 
 <!-- ================= BOOT ================= -->

@@ -1925,5 +1925,121 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 })();
 </script>
 
+<script>
+/* ---------- Besøgsstatistik (Umami, ingen cookies) ----------
+   Tæller kun på tobiasherstal.dk. Afsnit tælles som sider (/projekter osv.), tid i hvert afsnit,
+   hvor langt man når i Om mig og Automation, klik på Hent CV og Kopiér, valgte projekter og
+   kompetencer, og firma-links (?ref=firma). Egne besøg: åbn tobiasherstal.dk/?tael=nej én gang
+   pr. enhed (?tael=ja slår tællingen til igen). */
+(function(){
+  var HOSTS=['tobiasherstal.dk','www.tobiasherstal.dk'], ID='00ea58b6-c59a-4120-832d-a3a13f807162';
+  var L={start:'Startskærm',oversigt:'Oversigt','om-mig':'Om mig',automation:'Automation på 2 min',karriere:'Karriere',projekter:'Projekter',kompetencer:'Kompetencer',kontakt:'Kontakt'};
+  var q; try{q=new URLSearchParams(location.search)}catch(e){return}
+  function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+  function toast(msg){
+    var d=document.createElement('div'); d.setAttribute('role','status'); d.textContent=msg;
+    d.style.cssText='position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:99999;max-width:calc(100% - 32px);background:#0B1633;color:#fff;font:500 15px/1.4 Figtree,system-ui,sans-serif;padding:12px 18px;border:1px solid rgba(255,255,255,.2);border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.25)';
+    document.body.appendChild(d); setTimeout(function(){d.remove()},7000);
+  }
+
+  /* Tæl ikke mig: ?tael=nej (og ?tael=ja for at slå det til igen) */
+  var tael=q.get('tael');
+  if(tael==='nej'||tael==='ja'){
+    ls('umami.disabled',tael==='nej'?'1':null);
+    q.delete('tael'); var s=q.toString();
+    try{history.replaceState(null,'',location.pathname+(s?'?'+s:'')+location.hash)}catch(e){}
+    toast(tael==='nej'?'Dine besøg fra denne enhed tæller ikke længere med i statistikken.':'Dine besøg fra denne enhed tæller med i statistikken igen.');
+  }
+  if(HOSTS.indexOf(location.hostname)<0||ls('umami.disabled'))return;
+
+  /* Umami hentes, og hændelser venter i kø, til scriptet er klar */
+  var Q=[], ready=false, dead=false;
+  function send(fn){if(dead)return; if(ready&&window.umami)window.umami.track(fn); else if(Q.length<100)Q.push(fn)}
+  var sc=document.createElement('script'); sc.async=true; sc.src='https://cloud.umami.is/script.js';
+  sc.setAttribute('data-website-id',ID); sc.setAttribute('data-auto-track','false'); sc.setAttribute('data-domains',HOSTS.join(','));
+  sc.onload=function(){ready=true; if(window.umami)Q.forEach(function(f){window.umami.track(f)}); Q=[]};
+  sc.onerror=function(){dead=true; Q=[]};
+  document.head.appendChild(sc);
+
+  var first=true, active=null, t0=0, acc=0;
+  function url(id){return location.origin+'/'+id}
+  function pageview(id){
+    var u=url(id)+(first?location.search:''), internal=!first; first=false;
+    send(function(p){p.url=u; p.title=L[id]||id; if(internal)p.referrer=''; return p});
+  }
+  function ev(name,data){
+    var u=url(active||'start'), t=L[active]||'';
+    send(function(p){p.url=u; p.title=t; p.name=name.slice(0,50); if(data)p.data=data; return p});
+  }
+
+  /* Hvilket afsnit er fremme? Startskærmen tæller som sit eget afsnit */
+  var boot=document.getElementById('boot'), views=[].slice.call(document.querySelectorAll('.view'));
+  function where(){
+    if(boot&&!boot.hidden&&!boot.classList.contains('off'))return 'start';
+    for(var i=0;i<views.length;i++)if(!views[i].hidden)return views[i].id;
+    return null;
+  }
+  function bucket(s){return s<10?'under 10 sek':s<30?'10-30 sek':s<60?'30-60 sek':s<180?'1-3 min':s<600?'3-10 min':'over 10 min'}
+  function flush(){
+    if(!active)return;
+    if(t0){acc+=Date.now()-t0; t0=0}
+    var sec=Math.round(acc/1000); acc=0;
+    if(sec>=1)ev('Tid i '+L[active]+': '+bucket(sec),{afsnit:L[active],sekunder:sec});
+    progress(active);
+  }
+  function update(){
+    var s=where(); if(s===active)return;
+    flush(); active=s; acc=0; t0=document.visibilityState==='visible'?Date.now():0;
+    if(s)pageview(s);
+  }
+
+  /* Hvor langt man når i Om mig og Automation (dele i rækken i venstre side) */
+  var MQ=window.matchMedia('(min-width:900px) and (min-height:600px)'), far={}, told={}, N={};
+  ['om-mig','automation'].forEach(function(id){
+    var sec=document.getElementById(id); if(!sec)return;
+    var sc=[].slice.call(sec.querySelectorAll('.scene')); if(!sc.length)return;
+    far[id]=0; told[id]=0; N[id]=sc.length;
+    function seen(i){if(where()===id&&i+1>far[id])far[id]=i+1}
+    new MutationObserver(function(){if(!MQ.matches)return; sc.forEach(function(s,i){if(s.classList.contains('on'))seen(i)})})
+      .observe(sec,{attributes:true,attributeFilter:['class'],subtree:true});
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){if(MQ.matches)return; es.forEach(function(e){if(e.isIntersecting&&(e.intersectionRatio>=0.4||e.intersectionRect.height>=innerHeight*0.5))seen(sc.indexOf(e.target))})},{threshold:[0,0.25,0.4,0.6]});
+      sc.forEach(function(s){io.observe(s)});
+    }
+  });
+  function progress(id){
+    if(!(id in far))return;
+    var f=far[id]; if(f>told[id]){told[id]=f; ev(L[id]+': nåede del '+f+' af '+N[id],{afsnit:L[id],del:f,af:N[id]})}
+  }
+
+  /* Klik: Hent CV, Kopiér, projekter og kompetencer */
+  function name(el){var b=el.querySelector('b');if(b)return b.textContent.trim();var n=el.firstChild;while(n&&n.nodeType!==3)n=n.nextSibling;return (n?n.data:el.textContent).trim()}
+  var PJ={}; [].forEach.call(document.querySelectorAll('.pj-btn'),function(b){PJ[b.dataset.p]=name(b)});
+  function clicked(e){
+    var t=e.target; if(!t||!t.closest)return;
+    if(t.closest('a[href$=".pdf"]')){ev('Hent CV',{sted:L[active]||''});return}
+    if(e.type!=='click')return;
+    var c=t.closest('.copy'); if(c){ev(/@/.test(c.getAttribute('data-copy')||'')?'Kopierede mail':'Kopierede telefon');return}
+    var p=t.closest('.pj-btn,[data-goto]');
+    if(p){var k=p.dataset.p||p.dataset.goto; if(p.getAttribute('aria-current')!=='true')ev('Projekt: '+(PJ[k]||k),{projekt:PJ[k]||k,fra:L[active]||''});return}
+    var kt=t.closest('[role="tab"][aria-controls^="k-"]');
+    if(kt&&kt.getAttribute('aria-selected')!=='true')ev('Kompetence: '+name(kt));
+  }
+  document.addEventListener('click',clicked,true);
+  document.addEventListener('auxclick',function(e){if(e.button===1)clicked(e)},true);
+
+  /* Skift af afsnit, og tid, når fanen skjules eller lukkes */
+  var mo=new MutationObserver(update);
+  if(boot)mo.observe(boot,{attributes:true,attributeFilter:['hidden','class']});
+  views.forEach(function(v){mo.observe(v,{attributes:true,attributeFilter:['hidden']})});
+  document.addEventListener('visibilitychange',function(){if(document.visibilityState==='hidden')flush(); else if(active&&!t0)t0=Date.now()});
+  window.addEventListener('pagehide',flush);
+
+  update();
+  var ref=(q.get('ref')||'').toLowerCase().replace(/[^a-z0-9æøå._-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,38);
+  if(ref)ev('Firma-link: '+ref,{firma:ref});
+})();
+</script>
+
 </body>
 </html>

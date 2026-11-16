@@ -8,7 +8,9 @@
 <meta property="og:title" content="Tobias Herstal · Automationsteknolog">
 <meta property="og:description" content="Søger praktik 11. januar til 19. marts 2027. Projekter, karriere, kompetencer og CV.">
 <meta property="og:image" content="https://tobiasherstal.dk/tobias.jpg">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#151F2B" media="(prefers-color-scheme: dark)">
+<meta name="format-detection" content="telephone=no">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23fff' stroke='%232B4BE0' stroke-width='4'/%3E%3Cpath d='M16 21 H28 C32 21 34 23 34 27 V43 M23 21 V43 M34 32 H46 M46 21 V43' fill='none' stroke='%23121C27' stroke-width='3.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -710,6 +712,52 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   #oversigt .t-foot{display:none}
   .fl span{font-size:11.5px}
 }
+
+/* ================= MOBIL ================= */
+.kontakt-mini a,.kt-row a.v{color:inherit;text-decoration:none}
+/* Esc-tasten giver ingen mening på en telefon */
+@media (hover:none) and (pointer:coarse){.back kbd{display:none}}
+/* Topmenuen rulles sidelæns på smalle skærme: blød kant viser, at der er flere punkter */
+@media (max-width:1020px){
+  .nav.more-r{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent)}
+  .nav.more-l{-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px);mask-image:linear-gradient(90deg,transparent,#000 40px)}
+  .nav.more-l.more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
+}
+/* Større trykflader med fingeren */
+@media (max-width:899px) and (pointer:coarse){
+  .nav a{padding-block:12px}
+  .copy{padding:11px 14px}
+  .skip{padding:10px 12px}
+}
+@media (max-width:560px){
+  .fl span{font-size:11px;padding-inline:1px}
+}
+/* Kontakt på telefon: label over nummeret, Kopiér ude til højre */
+@media (max-width:520px){
+  .kt-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 12px;align-items:center}
+  .kt-row .k{width:auto;grid-column:1/-1}
+  .kt-row .copy{margin-left:0}
+}
+/* Startskærmen på telefon: mindre luft, så begge knapper kan ses uden at rulle */
+@media (max-width:520px){
+  .boot{padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px));padding-block:calc(env(safe-area-inset-top,0px) + 10px) calc(env(safe-area-inset-bottom,0px) + 10px)}
+  .bezel{padding:6px;border-radius:18px}
+  .screen{padding:16px;gap:14px}
+  .boot-head{flex-wrap:nowrap;font-size:11px;letter-spacing:.04em}
+  .boot-head>span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .skip{flex:none}
+  .boot-title small{margin-top:8px}
+  .log{font-size:12px}
+  .boot-q{font-size:17px}
+  .start,.explain{font-size:16px}
+}
+@media (max-width:520px) and (max-height:740px){
+  .screen{gap:11px;padding-block:14px}
+  .boot-title{font-size:30px}
+}
+@media (max-width:520px) and (max-height:600px){
+  .log li:nth-child(n+5):not(:last-child){display:none}
+}
 </style>
 
 <!-- ================= BOOT ================= -->
@@ -795,7 +843,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
             <div class="fl"><i>2</i><span>Detail</span></div>
             <div class="fl"><i>8</i><span>Rejse&shy;branchen</span></div>
             <div class="fl rb"><i>10</i><span>Reboot</span></div>
-            <div class="fl now"><i>11</i><span>Automation</span></div>
+            <div class="fl now"><i>11</i><span>Auto&shy;mation</span></div>
             <div class="fl next"><i>14</i><span>Praktik</span></div>
           </div>
           <p class="t-foot">16 trin · 2012-2027 · fire perioder med flere spor på samme tid</p>
@@ -816,7 +864,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
         </a>
         <div class="tile">
           <div class="t-head"><h3><a href="#kontakt" style="color:inherit;text-decoration:none">Kontakt</a></h3><a class="t-go" href="#kontakt" aria-label="Åbn kontakt"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-          <div class="kontakt-mini"><span>Telefon</span>+45 28 43 47 13<span>Mail</span>tbh@live.dk<span>Praktik</span>11.01-19.03.2027</div>
+          <div class="kontakt-mini"><span>Telefon</span><a href="tel:+4528434713">+45 28 43 47 13</a><span>Mail</span><a href="mailto:tbh@live.dk">tbh@live.dk</a><span>Praktik</span>11.01-19.03.2027</div>
           <a class="btn" href="Tobias-Herstal-CV.pdf" target="_blank" rel="noopener">Hent CV</a>
         </div>
       </div>
@@ -1755,8 +1803,8 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
               <p class="t-text">Jeg svarer hurtigt og kommer gerne forbi til en samtale.</p>
             </div>
           </div>
-          <div class="kt-row"><span class="k">Telefon</span><span class="v">+45 28 43 47 13</span><button class="copy" type="button" data-copy="+45 28 43 47 13">Kopiér</button></div>
-          <div class="kt-row"><span class="k">Mail</span><span class="v">tbh@live.dk</span><button class="copy" type="button" data-copy="tbh@live.dk">Kopiér</button></div>
+          <div class="kt-row"><span class="k">Telefon</span><a class="v" href="tel:+4528434713">+45 28 43 47 13</a><button class="copy" type="button" data-copy="+45 28 43 47 13">Kopiér</button></div>
+          <div class="kt-row"><span class="k">Mail</span><a class="v" href="mailto:tbh@live.dk">tbh@live.dk</a><button class="copy" type="button" data-copy="tbh@live.dk">Kopiér</button></div>
           <div class="kt-row"><span class="k">Web</span><span class="v">tobiasherstal.dk</span></div>
           <a class="btn big" href="Tobias-Herstal-CV.pdf" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M5 21h14"/></svg>Hent CV (PDF, 2 sider)</a>
         </div>
@@ -1794,8 +1842,10 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     if(current===id)return;
     views.forEach(function(x){x.hidden=x!==v});
     v.classList.remove('enter'); void v.offsetWidth; if(!reduce)v.classList.add('enter');
-    navs.forEach(function(a){if(a.dataset.v===id)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    navs.forEach(function(a){if(a.dataset.v===id){a.setAttribute('aria-current','page');centerNav(a)}else a.removeAttribute('aria-current')});
     if(v.classList.contains('scroll')||v.classList.contains('story-view'))v.scrollTop=0;
+    /* Telefon/smal skærm: hele siden ruller, så et nyt afsnit skal starte fra toppen */
+    if(!appMQ.matches&&current!==null)window.scrollTo(0,0);
     if(stories[id])requestAnimationFrame(function(){stories[id].layout();stories[id].scroll();if(id==='om-mig')typeCode()});
     current=id;
     if(!(opts&&opts.quiet)){var h=v.querySelector('[tabindex="-1"]');if(h)h.focus({preventScroll:true})}
@@ -1803,9 +1853,27 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
   function route(quiet){show((location.hash||'#oversigt').slice(1),{quiet:quiet})}
   window.addEventListener('hashchange',function(){route(false)});
 
+  /* ---------- Mobil: topmenu og rul til indhold ---------- */
+  var appMQ=window.matchMedia('(min-width:900px) and (min-height:600px)');
+  var nav=$('.nav'), bar=$('.bar');
+  function navEdges(){if(!nav)return; var max=nav.scrollWidth-nav.clientWidth; nav.classList.toggle('more-l',max>4&&nav.scrollLeft>4); nav.classList.toggle('more-r',max>4&&nav.scrollLeft<max-4)}
+  function centerNav(a){
+    if(!nav||nav.scrollWidth<=nav.clientWidth+4)return;
+    var nr=nav.getBoundingClientRect(), ar=a.getBoundingClientRect();
+    nav.scrollTo({left:nav.scrollLeft+(ar.left-nr.left)-(nr.width-ar.width)/2,behavior:reduce||current===null?'auto':'smooth'});
+  }
+  if(nav){nav.addEventListener('scroll',navEdges,{passive:true}); window.addEventListener('resize',navEdges); navEdges()}
+  /* Rul et element frem lige under topbaren (kun når hele siden ruller, altså på telefon) */
+  function reveal(el,instant){
+    if(!el||appMQ.matches)return;
+    var top=bar?bar.getBoundingClientRect().bottom:0, r=el.getBoundingClientRect();
+    if(!instant&&r.top>=top&&r.top<innerHeight*0.45)return;
+    var y=0, e=el; while(e){y+=e.offsetTop;e=e.offsetParent}  /* uden animationens forskydning */
+    window.scrollTo({top:Math.max(0,y-top-12),behavior:reduce||instant?'auto':'smooth'});
+  }
+
 
   /* ---------- Scroll-historier (Om mig, Automation) ---------- */
-  var appMQ=window.matchMedia('(min-width:900px) and (min-height:600px)');
   function Story(sec){
     var st=$('.story',sec), sg=$('.stage',sec), sc=$$('.scene',sec), rb=$$('.rail button',sec), n=sc.length, stp=0, snaps=[], tick=false;
     function layout(){
@@ -1854,12 +1922,15 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 
   /* ---------- Boot ---------- */
   var boot=$('#boot'), start=$('#start'), skip=$('#skip'), lines=$$('#log li'), timers=[];
-  function done(){ if(!boot||boot.hidden)return; timers.forEach(clearTimeout); timers=[]; boot.classList.add('off'); setTimeout(function(){boot.hidden=true},460); var h=document.getElementById(current||'oversigt').querySelector('[tabindex="-1"]'); if(h)h.focus({preventScroll:true}) }
+  /* Telefonens statuslinje/værktøjslinje får startskærmens mørke farve, mens den er fremme */
+  var metas=$$('meta[name="theme-color"]');
+  function tint(dark){metas.forEach(function(m){if(!m.dataset.c)m.dataset.c=m.content; m.content=dark?(getComputedStyle(root).getPropertyValue('--panel').trim()||'#0F1A26'):m.dataset.c})}
+  function done(){ if(!boot||boot.hidden)return; tint(false); timers.forEach(clearTimeout); timers=[]; boot.classList.add('off'); setTimeout(function(){boot.hidden=true},460); var h=document.getElementById(current||'oversigt').querySelector('[tabindex="-1"]'); if(h)h.focus({preventScroll:true}) }
   function openBoot(){
     if(!boot)return;
     timers.forEach(clearTimeout); timers=[];
     lines.forEach(function(l){l.classList.remove('in')}); start.classList.remove('ready');
-    boot.hidden=false; boot.classList.remove('off');
+    boot.hidden=false; boot.classList.remove('off'); tint(true);
     if(reduce){lines.forEach(function(l){l.classList.add('in')});start.classList.add('ready')}
     else{lines.forEach(function(l,i){timers.push(setTimeout(function(){l.classList.add('in')},180+i*160))});timers.push(setTimeout(function(){start.classList.add('ready')},180+lines.length*160))}
     start.focus({preventScroll:true});
@@ -1884,7 +1955,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     function sel(b,anim){btns.forEach(function(x){var on=x===b;x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;var p=document.getElementById(x.getAttribute('aria-controls'));if(p){p.hidden=!on;if(on&&anim&&!reduce&&p.classList.contains('kp-panel')){p.classList.remove('enter');void p.offsetWidth;p.classList.add('enter')}}})}
     var vertical=list.getAttribute('aria-orientation')==='vertical';
     btns.forEach(function(b,i){
-      b.addEventListener('click',function(){sel(b,true)});
+      b.addEventListener('click',function(){sel(b,true); var p=document.getElementById(b.getAttribute('aria-controls')); if(p&&p.classList.contains('kp-panel'))reveal(p)});
       b.addEventListener('keydown',function(e){var k=e.key,j=-1;if(k===(vertical?'ArrowDown':'ArrowRight'))j=(i+1)%btns.length;if(k===(vertical?'ArrowUp':'ArrowLeft'))j=(i-1+btns.length)%btns.length;if(j>-1){e.preventDefault();btns[j].focus();sel(btns[j],true)}});
     });
     sel(btns.filter(function(b){return b.getAttribute('aria-selected')==='true'})[0]||btns[0],false);
@@ -1898,9 +1969,14 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     arts.forEach(function(a){var on=a.dataset.p===p;a.hidden=!on;if(on&&anim&&!reduce){a.classList.remove('enter');void a.offsetWidth;a.classList.add('enter')}});
     var d=$('.pj-detail'); if(d)d.scrollTop=0;
   }
-  pbtns.forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.p,true)})});
+  function art(p){return arts.filter(function(a){return a.dataset.p===p})[0]}
+  pbtns.forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.p,true);reveal(art(b.dataset.p))})});
   pick('cellen',false);
-  $$('[data-goto]').forEach(function(b){b.addEventListener('click',function(){pick(b.dataset.goto,false);location.hash='projekter'})});
+  $$('[data-goto]').forEach(function(b){b.addEventListener('click',function(){
+    var p=b.dataset.goto; pick(p,false);
+    if(location.hash!=='#projekter')location.hash='projekter'; show('projekter',{quiet:true});
+    requestAnimationFrame(function(){reveal(art(p),true)});
+  })});
   $$('[data-kar]').forEach(function(a){a.addEventListener('click',function(e){
     var t=document.getElementById(a.dataset.kar); if(!t)return; e.preventDefault();
     if(location.hash!=='#karriere')location.hash='karriere'; show('karriere',{quiet:true});
@@ -1918,7 +1994,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     b.addEventListener('click',function(){
       var t=b.getAttribute('data-copy'), old=b.textContent;
       function ok(){b.textContent='Kopieret';setTimeout(function(){b.textContent=old},1600)}
-      function sel(){var v=b.previousElementSibling;var r=document.createRange();r.selectNodeContents(v);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Markeret, tryk Ctrl+C'}
+      function sel(){var v=b.previousElementSibling;var r=document.createRange();r.selectNodeContents(v);var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent=matchMedia('(pointer:coarse)').matches?'Markeret, kopiér nu':'Markeret, tryk Ctrl+C'}
       if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(ok,sel)}else sel();
     });
   });
@@ -1928,7 +2004,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
 <script>
 /* ---------- Besøgsstatistik (Umami, ingen cookies) ----------
    Tæller kun på tobiasherstal.dk. Afsnit tælles som sider (/projekter osv.), tid i hvert afsnit,
-   hvor langt man når i Om mig og Automation, klik på Hent CV og Kopiér, valgte projekter og
+   hvor langt man når i Om mig og Automation, klik på Hent CV, Kopiér, telefon og mail, valgte projekter og
    kompetencer, og firma-links (?ref=firma). Egne besøg: åbn tobiasherstal.dk/?tael=nej én gang
    pr. enhed (?tael=ja slår tællingen til igen). */
 (function(){
@@ -2020,6 +2096,7 @@ a.tile:hover .t-go{background:var(--flow);color:var(--on-flow)}
     if(t.closest('a[href$=".pdf"]')){ev('Hent CV',{sted:L[active]||''});return}
     if(e.type!=='click')return;
     var c=t.closest('.copy'); if(c){ev(/@/.test(c.getAttribute('data-copy')||'')?'Kopierede mail':'Kopierede telefon');return}
+    var tl=t.closest('a[href^="tel:"],a[href^="mailto:"]'); if(tl){ev(/^tel:/.test(tl.getAttribute('href'))?'Trykkede på telefon':'Trykkede på mail',{sted:L[active]||''});return}
     var p=t.closest('.pj-btn,[data-goto]');
     if(p){var k=p.dataset.p||p.dataset.goto; if(p.getAttribute('aria-current')!=='true')ev('Projekt: '+(PJ[k]||k),{projekt:PJ[k]||k,fra:L[active]||''});return}
     var kt=t.closest('[role="tab"][aria-controls^="k-"]');

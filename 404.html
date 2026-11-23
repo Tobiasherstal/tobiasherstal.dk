@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Siden findes ikke</title>
+<script>
+// /Jul, /JUL osv. sendes videre til /jul/ (GitHub Pages skelner mellem store og små bogstaver)
+(function(){
+  var p=location.pathname, m=p.match(/^\/jul(\/.*)?$/i);
+  if(m && p.slice(0,4)!=="/jul"){ location.replace("/jul"+(m[1]||"/")+location.search+location.hash); }
+})();
+</script>
+<style>
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:#EDF1F5;color:#121C27;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;text-align:center;padding:24px}
+@media (prefers-color-scheme:dark){body{background:#0D141C;color:#E7EDF4}}
+h1{font-size:28px;margin:0 0 8px}
+p{margin:0 0 18px;opacity:.75}
+a{display:inline-block;background:#2B4BE0;color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px}
+</style>
+</head>
+<body>
+<main>
+<h1>Siden findes ikke</h1>
+<p>Adressen er måske skrevet forkert.</p>
+<a href="/">Gå til forsiden</a>
+</main>
+</body>
+</html>

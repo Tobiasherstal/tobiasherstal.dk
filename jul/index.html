@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tobias' juleønsker</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Alle mine ønsker til jul samlet ét sted. Det nyeste står øverst.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tobias' juleønsker">
+<meta property="og:description" content="Alle mine ønsker til jul samlet ét sted. Det nyeste står øverst.">
+<meta property="og:url" content="https://tobiasherstal.dk/jul/">
+<meta property="og:image" content="https://tobiasherstal.dk/jul/del.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="theme-color" content="#1F4D3A">
+<meta name="format-detection" content="telephone=no">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect x='8' y='24' width='48' height='34' rx='5' fill='%231F4D3A'/%3E%3Crect x='4' y='16' width='56' height='12' rx='4' fill='%23C2412D'/%3E%3Crect x='28' y='16' width='8' height='42' fill='%23F2C14E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600..800&family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --bg:#F7F2EA; --surface:#FFFFFF; --ink:#1D2420; --muted:#5E6B63; --line:#E8DFD2;
+  --pine:#1F4D3A; --pine-ink:#F7F2EA; --pine-mute:#BFD3C6;
+  --red:#C2412D; --on-red:#FFFFFF; --gold:#F2C14E; --soft:#F1EADF;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
+  --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light dark;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0F1512; --surface:#18211C; --ink:#EEF2EE; --muted:#A3B0A7; --line:#27332B;
+    --pine:#163828; --pine-ink:#EEF2EE; --pine-mute:#A9C2B2;
+    --red:#EE6A52; --on-red:#1A0D0A; --gold:#F2C14E; --soft:#1F2A24;
+  }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5}
+a{color:inherit}
+.wrap{max-width:680px;margin:0 auto;padding:0 18px}
+
+/* Top */
+.top{background:var(--pine);color:var(--pine-ink);position:relative;overflow:hidden;
+  padding:calc(34px + env(safe-area-inset-top)) 0 34px}
+.top::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:.55;
+  background-image:
+    radial-gradient(circle at 12% 22%,#fff 0 1.6px,transparent 2.4px),
+    radial-gradient(circle at 78% 14%,#fff 0 2px,transparent 2.8px),
+    radial-gradient(circle at 42% 68%,#fff 0 1.4px,transparent 2.2px),
+    radial-gradient(circle at 90% 62%,#fff 0 1.8px,transparent 2.6px),
+    radial-gradient(circle at 25% 85%,#fff 0 1.2px,transparent 2px),
+    radial-gradient(circle at 63% 38%,#fff 0 1.2px,transparent 2px);
+  background-size:220px 160px}
+.top .wrap{position:relative}
+.kicker{font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--pine-mute);margin:0 0 6px}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,9vw,52px);line-height:1.02;margin:0 0 12px;letter-spacing:-.01em}
+h1 .dot{color:var(--gold)}
+.intro{margin:0;max-width:34em;color:var(--pine-ink);opacity:.92}
+
+/* Status og sortering */
+.bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 16px}
+.status{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font-size:16px}
+.status b{font-weight:700}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 12px;font-size:15px;font-weight:600}
+.pill.new{background:var(--red);color:var(--on-red)}
+.pill.calm{background:var(--soft);color:var(--muted)}
+.sort{display:inline-flex;background:var(--soft);border-radius:12px;padding:4px;gap:4px}
+.sort button{font:inherit;font-size:15px;font-weight:600;border:0;border-radius:9px;padding:9px 14px;min-height:42px;
+  background:transparent;color:var(--muted);cursor:pointer}
+.sort button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+
+/* Ønsker */
+.list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.wish{display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:start;text-decoration:none;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;
+  transition:transform .15s ease, box-shadow .15s ease}
+.wish:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+.wish:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wish.is-new{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
+.thumb{width:92px;height:92px;border-radius:12px;background:var(--soft);overflow:hidden;display:grid;place-items:center}
+.thumb img{width:100%;height:100%;object-fit:contain;background:#fff}
+.thumb svg{width:44px;height:44px}
+.body{min-width:0}
+.row1{display:flex;align-items:center;gap:8px;margin-bottom:2px}
+.num{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.badge{background:var(--red);color:var(--on-red);font-size:12px;font-weight:800;letter-spacing:.06em;border-radius:6px;padding:2px 7px}
+.name{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.2;margin:0 0 4px;overflow-wrap:anywhere}
+.shop{color:var(--muted);font-size:15px;margin:0}
+.shop .price{color:var(--ink);font-weight:700}
+.note{margin:8px 0 0;font-size:15.5px;background:var(--soft);border-radius:10px;padding:8px 10px}
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-top:12px}
+.date{font-size:14px;color:var(--muted)}
+.go{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:var(--pine);color:var(--pine-ink);font-weight:700;font-size:15px;
+  border-radius:10px;padding:10px 14px;min-height:44px}
+@media (prefers-color-scheme:dark){ .go{background:#2C6B50} .sort button[aria-pressed="true"]{background:#34473C} }
+
+.empty,.error{background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:28px 18px;text-align:center;color:var(--muted)}
+.empty b,.error b{display:block;color:var(--ink);font-family:var(--f-display);font-size:20px;margin-bottom:4px}
+
+footer{color:var(--muted);font-size:14px;text-align:center;max-width:680px;margin:0 auto;padding:28px 18px calc(36px + env(safe-area-inset-bottom))}
+
+@media (max-width:420px){
+  .wish{grid-template-columns:72px 1fr;gap:12px;padding:12px}
+  .thumb{width:72px;height:72px}
+  .name{font-size:18.5px}
+  .bar{flex-direction:column;align-items:stretch}
+  .sort{align-self:stretch}
+  .sort button{flex:1}
+  .foot{flex-direction:column;align-items:stretch}
+  .go{justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){ .wish{transition:none} .wish:hover{transform:none} }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="kicker">Jul 2026</p>
+    <h1>Tobias' juleønsker<span class="dot">.</span></h1>
+    <p class="intro">Her samler jeg det, jeg ønsker mig til jul. Når jeg finder noget nyt, kommer det på listen her, så du skal bare gemme linket og kigge forbi.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="bar">
+    <div class="status" id="status" aria-live="polite"></div>
+    <div class="sort" role="group" aria-label="Sortering">
+      <button type="button" data-sort="nyeste" aria-pressed="true">Nyeste først</button>
+      <button type="button" data-sort="aeldste" aria-pressed="false">Ældste først</button>
+    </div>
+  </div>
+  <ol class="list" id="list"></ol>
+</main>
+
+<footer id="foot">Tryk på et ønske for at se det i butikken.</footer>
+
+<script>
+(function(){
+  var DAGE=["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"];
+  var MDR=["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"];
+  var GAVE='<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="24" width="48" height="34" rx="5" fill="#1F4D3A"/><rect x="4" y="16" width="56" height="12" rx="4" fill="#C2412D"/><rect x="28" y="16" width="8" height="42" fill="#F2C14E"/><path d="M32 16c-4-9-15-10-15-3 0 4 8 4 15 3zm0 0c4-9 15-10 15-3 0 4-8 4-15 3z" fill="none" stroke="#F2C14E" stroke-width="3.5"/></svg>';
+
+  function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){return null}}
+  function sess(k,v){try{ if(v===undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k,v);}catch(e){return null}}
+  function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
+  function safeUrl(u){u=String(u||"");return /^https?:\/\//i.test(u)?u:"#"}
+  function pad(n){return (n<10?"0":"")+n}
+  function kl(d){return "kl. "+pad(d.getHours())+"."+pad(d.getMinutes())}
+  function dag0(d){return new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()}
+  function hvornaar(d){
+    var diff=Math.round((dag0(new Date())-dag0(d))/864e5);
+    if(diff===0) return "i dag "+kl(d);
+    if(diff===1) return "i går "+kl(d);
+    var s=DAGE[d.getDay()]+" "+d.getDate()+". "+MDR[d.getMonth()];
+    if(d.getFullYear()!==new Date().getFullYear()) s+=" "+d.getFullYear();
+    return s;
+  }
+  function butik(w){
+    if(w.butik) return w.butik;
+    try{return new URL(w.link).hostname.replace(/^www\./,"")}catch(e){return ""}
+  }
+
+  // Sidste besøg: gemmes i browseren. Inden for samme besøg bliver NY-mærkerne stående.
+  var forrige=sess("jul-forrige");
+  if(forrige===null){
+    forrige=store("jul-sidst")||"";
+    sess("jul-forrige",forrige);
+    store("jul-sidst",String(Date.now()));
+  }
+  var sidst=forrige?Number(forrige):0;
+
+  var sortering=store("jul-sortering")==="aeldste"?"aeldste":"nyeste";
+  var oensker=[];
+
+  function tegn(){
+    var list=document.getElementById("list");
+    var statusEl=document.getElementById("status");
+    document.querySelectorAll(".sort button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.sort===sortering))});
+
+    if(!oensker.length){
+      statusEl.innerHTML="";
+      list.innerHTML='<li class="empty"><b>Listen er tom lige nu</b>Kig forbi igen om lidt.</li>';
+      return;
+    }
+    var nye=oensker.filter(function(w){return sidst&&w.t>sidst}).length;
+    var html="<span><b>"+oensker.length+" "+(oensker.length===1?"ønske":"ønsker")+"</b> på listen</span>";
+    if(sidst){
+      html+= nye ? '<span class="pill new">'+nye+" "+(nye===1?"nyt":"nye")+" siden dit sidste besøg</span>"
+                 : '<span class="pill calm">Intet nyt siden dit sidste besøg</span>';
+    }
+    statusEl.innerHTML=html;
+
+    var vis=oensker.slice().sort(function(a,b){return sortering==="nyeste"?b.t-a.t:a.t-b.t});
+    list.innerHTML=vis.map(function(w){
+      var ny=sidst&&w.t>sidst;
+      var shop=butik(w);
+      var meta=[shop?esc(shop):"",w.pris?'<span class="price">'+esc(w.pris)+"</span>":""].filter(Boolean).join(" · ");
+      var thumb=w.billede
+        ? '<img src="'+esc(safeUrl(w.billede))+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=window.__GAVE">'
+        : GAVE;
+      return '<li><a class="wish'+(ny?" is-new":"")+'" href="'+esc(safeUrl(w.link))+'" target="_blank" rel="noopener noreferrer">'
+        +'<div class="thumb">'+thumb+"</div>"
+        +'<div class="body">'
+          +'<div class="row1"><span class="num">Ønske '+w.nr+"</span>"+(ny?'<span class="badge">NY</span>':"")+"</div>"
+          +'<h2 class="name">'+esc(w.navn||"Ønske")+"</h2>"
+          +(meta?'<p class="shop">'+meta+"</p>":"")
+          +(w.note?'<p class="note">'+esc(w.note)+"</p>":"")
+          +'<div class="foot"><span class="date">Tilføjet '+hvornaar(new Date(w.t))+'</span><span class="go">Se ønsket <span aria-hidden="true">↗</span></span></div>'
+        +"</div></a></li>";
+    }).join("");
+  }
+  window.__GAVE=GAVE;
+
+  document.querySelectorAll(".sort button").forEach(function(b){
+    b.addEventListener("click",function(){sortering=b.dataset.sort;store("jul-sortering",sortering);tegn()});
+  });
+
+  fetch("onsker.json?t="+Date.now(),{cache:"no-store"})
+    .then(function(r){if(!r.ok) throw new Error(r.status);return r.json()})
+    .then(function(data){
+      oensker=(Array.isArray(data)?data:[]).filter(function(w){return w&&w.link&&!w.skjult})
+        .map(function(w){return Object.assign({},w,{t:new Date(w.tilfoejet).getTime()||0})})
+        .sort(function(a,b){return a.t-b.t})
+        .map(function(w,i){w.nr=i+1;return w});
+      tegn();
+      if(oensker.length){
+        var max=oensker[oensker.length-1].t;
+        document.getElementById("foot").textContent="Sidst opdateret "+hvornaar(new Date(max))+". Tryk på et ønske for at se det i butikken.";
+      }
+    })
+    .catch(function(){
+      document.getElementById("list").innerHTML='<li class="error"><b>Listen kunne ikke hentes</b>Prøv at genindlæse siden om lidt.</li>';
+    });
+})();
+</script>
+</body>
+</html>

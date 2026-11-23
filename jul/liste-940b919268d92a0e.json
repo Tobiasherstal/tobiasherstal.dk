@@ -29,5 +29,28 @@
     "butik": "Elgiganten",
     "pris": "499 kr.",
     "billede": "https://www.elgiganten.dk/image/dv_web_D1800010021640291/633792/nespresso-vertuo-pop-kapselmaskine-malkeskummer.jpg"
+  },
+  {
+    "tilfoejet": "2026-11-23T17:14:00+01:00",
+    "navn": "AOC 16T20E2 15,6\" bærbar skærm",
+    "link": "https://www.elgiganten.dk/product/computer-kontor/skarme-tilbehor/monitor/aoc-16t20e2-156-barbar-skarm/1107916",
+    "butik": "Elgiganten",
+    "pris": "519 kr.",
+    "billede": "https://www.elgiganten.dk/image/dv_web_D1800014311001/1107916/aoc-16t20e2-156-barbar-skarm.jpg"
+  },
+  {
+    "tilfoejet": "2026-11-23T17:14:20+01:00",
+    "navn": "Logitech G502 X PLUS trådløs gamingmus (sort/lilla)",
+    "link": "https://www.elgiganten.dk/product/computer-kontor/computertilbehor/mus-tastatur/mus/logitech-g-g502-x-plus-tradlos-gamingmus-sortlilla/1132141",
+    "butik": "Elgiganten",
+    "pris": "1.349 kr.",
+    "billede": "https://www.elgiganten.dk/image/dv_web_D1800014516808/1132141/logitech-g-g502-x-plus-tradlos-gamingmus-sortlilla.jpg",
+    "eller": {
+      "tekst": "Eller i hvid/turkis",
+      "navn": "Logitech G502 X PLUS trådløs gamingmus (hvid/turkis)",
+      "link": "https://www.elgiganten.dk/product/computer-kontor/computertilbehor/mus-tastatur/mus/logitech-g-g502-x-plus-tradlos-gamingmus-hvidturkis/1132142",
+      "pris": "1.349 kr.",
+      "billede": "https://www.elgiganten.dk/image/dv_web_D1800014516792/1132142/logitech-g-g502-x-plus-tradlos-gamingmus-hvidturkis.jpg"
+    }
   }
 ]

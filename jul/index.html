@@ -22,7 +22,7 @@
 <style>
 :root{
   --bg:#F7F2EA; --surface:#FFFFFF; --ink:#1D2420; --muted:#5E6B63; --line:#E8DFD2;
-  --pine:#1F4D3A; --pine-ink:#F7F2EA; --pine-mute:#BFD3C6;
+  --pine:#1F4D3A; --pine-ink:#F7F2EA; --pine-mute:#BFD3C6; --btn:#1F4D3A;
   --red:#C2412D; --on-red:#FFFFFF; --gold:#F2C14E; --soft:#F1EADF;
   --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",sans-serif;
   --f-body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -31,11 +31,12 @@
 @media (prefers-color-scheme:dark){
   :root{
     --bg:#0F1512; --surface:#18211C; --ink:#EEF2EE; --muted:#A3B0A7; --line:#27332B;
-    --pine:#163828; --pine-ink:#EEF2EE; --pine-mute:#A9C2B2;
+    --pine:#163828; --pine-ink:#EEF2EE; --pine-mute:#A9C2B2; --btn:#2C6B50;
     --red:#EE6A52; --on-red:#1A0D0A; --gold:#F2C14E; --soft:#1F2A24;
   }
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.5}
 a{color:inherit}
@@ -59,6 +60,19 @@ h1{font-family:var(--f-display);font-weight:800;font-size:clamp(34px,9vw,52px);l
 h1 .dot{color:var(--gold)}
 .intro{margin:0;max-width:34em;color:var(--pine-ink);opacity:.92}
 
+/* Log ind */
+.login{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 18px;margin:24px 0}
+.login h2{font-family:var(--f-display);font-size:24px;margin:0 0 4px}
+.login p{margin:0 0 14px;color:var(--muted)}
+.login label{display:block;font-weight:600;font-size:15px;margin-bottom:6px}
+.login .felt{display:flex;gap:10px;flex-wrap:wrap}
+.login input{flex:1 1 200px;font:inherit;font-size:18px;padding:12px 14px;min-height:50px;border-radius:12px;
+  border:1.5px solid var(--line);background:var(--bg);color:var(--ink)}
+.login input:focus{outline:none;border-color:var(--btn);box-shadow:0 0 0 3px color-mix(in srgb,var(--btn) 25%,transparent)}
+.login button{font:inherit;font-weight:700;font-size:17px;border:0;border-radius:12px;padding:12px 22px;min-height:50px;
+  background:var(--btn);color:#fff;cursor:pointer;flex:0 0 auto}
+.login .fejl{color:var(--red);font-weight:600;margin:12px 0 0}
+
 /* Status og sortering */
 .bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 16px}
 .status{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;font-size:16px}
@@ -70,14 +84,12 @@ h1 .dot{color:var(--gold)}
 .sort button{font:inherit;font-size:15px;font-weight:600;border:0;border-radius:9px;padding:9px 14px;min-height:42px;
   background:transparent;color:var(--muted);cursor:pointer}
 .sort button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+@media (prefers-color-scheme:dark){ .sort button[aria-pressed="true"]{background:#34473C} }
 
 /* Ønsker */
 .list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-.wish{display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:start;text-decoration:none;
-  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;
-  transition:transform .15s ease, box-shadow .15s ease}
-.wish:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
-.wish:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.wish{display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:start;
+  background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px}
 .wish.is-new{border-color:var(--red);box-shadow:0 0 0 1px var(--red) inset}
 .thumb{width:92px;height:92px;border-radius:12px;background:var(--soft);overflow:hidden;display:grid;place-items:center}
 .thumb img{width:100%;height:100%;object-fit:contain;background:#fff}
@@ -87,19 +99,30 @@ h1 .dot{color:var(--gold)}
 .num{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .badge{background:var(--red);color:var(--on-red);font-size:12px;font-weight:800;letter-spacing:.06em;border-radius:6px;padding:2px 7px}
 .name{font-family:var(--f-display);font-weight:700;font-size:20px;line-height:1.2;margin:0 0 4px;overflow-wrap:anywhere}
+.name a{text-decoration:none}
 .shop{color:var(--muted);font-size:15px;margin:0}
-.shop .price{color:var(--ink);font-weight:700}
+.price{color:var(--ink);font-weight:700}
 .note{margin:8px 0 0;font-size:15.5px;background:var(--soft);border-radius:10px;padding:8px 10px}
+.alt{display:flex;align-items:center;gap:10px;margin-top:10px;text-decoration:none;
+  border:1.5px dashed var(--line);border-radius:12px;padding:8px 10px}
+.alt img,.alt .mini{width:44px;height:44px;flex:0 0 44px;border-radius:8px;object-fit:contain;background:#fff}
+.alt .mini{background:var(--soft);display:grid;place-items:center}
+.alt .mini svg{width:24px;height:24px}
+.alt-txt{min-width:0;flex:1;font-size:15px;line-height:1.3}
+.alt-lbl{display:block;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.alt-go{font-weight:700;font-size:14.5px;white-space:nowrap;padding:8px 10px;border-radius:9px;background:var(--soft)}
 .foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 12px;margin-top:12px}
 .date{font-size:14px;color:var(--muted)}
-.go{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:var(--pine);color:var(--pine-ink);font-weight:700;font-size:15px;
-  border-radius:10px;padding:10px 14px;min-height:44px}
-@media (prefers-color-scheme:dark){ .go{background:#2C6B50} .sort button[aria-pressed="true"]{background:#34473C} }
+.go{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;background:var(--btn);color:#fff;font-weight:700;font-size:15px;
+  border-radius:10px;padding:10px 14px;min-height:44px;text-decoration:none}
+.go:focus-visible,.alt:focus-visible,.name a:focus-visible{outline:3px solid var(--red);outline-offset:2px}
 
 .empty,.error{background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:28px 18px;text-align:center;color:var(--muted)}
 .empty b,.error b{display:block;color:var(--ink);font-family:var(--f-display);font-size:20px;margin-bottom:4px}
 
 footer{color:var(--muted);font-size:14px;text-align:center;max-width:680px;margin:0 auto;padding:28px 18px calc(36px + env(safe-area-inset-bottom))}
+footer p{margin:0 0 6px}
+.ud{font:inherit;font-size:14px;background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;padding:8px}
 
 @media (max-width:420px){
   .wish{grid-template-columns:72px 1fr;gap:12px;padding:12px}
@@ -110,39 +133,61 @@ footer{color:var(--muted);font-size:14px;text-align:center;max-width:680px;margi
   .sort button{flex:1}
   .foot{flex-direction:column;align-items:stretch}
   .go{justify-content:center}
+  .login button{flex:1 1 100%}
 }
-@media (prefers-reduced-motion:reduce){ .wish{transition:none} .wish:hover{transform:none} }
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <p class="kicker">Jul 2026</p>
+    <p class="kicker" id="kicker">Jul 2026</p>
     <h1>Tobias' juleønsker<span class="dot">.</span></h1>
     <p class="intro">Her samler jeg det, jeg ønsker mig til jul. Når jeg finder noget nyt, kommer det på listen her, så du skal bare gemme linket og kigge forbi.</p>
   </div>
 </header>
 
 <main class="wrap">
-  <div class="bar">
-    <div class="status" id="status" aria-live="polite"></div>
-    <div class="sort" role="group" aria-label="Sortering">
-      <button type="button" data-sort="nyeste" aria-pressed="true">Nyeste først</button>
-      <button type="button" data-sort="aeldste" aria-pressed="false">Ældste først</button>
+  <form class="login" id="login" hidden autocomplete="on">
+    <h2>Hvem er du?</h2>
+    <p>Skriv dit navn for at se listen. Du skal kun gøre det første gang.</p>
+    <label for="navn">Navn</label>
+    <div class="felt">
+      <input id="navn" name="username" autocomplete="username" autocapitalize="words" spellcheck="false" placeholder="Dit navn" required>
+      <button type="submit">Vis listen</button>
     </div>
-  </div>
-  <ol class="list" id="list"></ol>
+    <p class="fejl" id="fejl" role="alert" hidden></p>
+  </form>
+
+  <section id="indhold" hidden>
+    <div class="bar">
+      <div class="status" id="status" aria-live="polite"></div>
+      <div class="sort" role="group" aria-label="Sortering">
+        <button type="button" data-sort="nyeste" aria-pressed="true">Nyeste først</button>
+        <button type="button" data-sort="aeldste" aria-pressed="false">Ældste først</button>
+      </div>
+    </div>
+    <ol class="list" id="list"></ol>
+  </section>
 </main>
 
-<footer id="foot">Tryk på et ønske for at se det i butikken.</footer>
+<footer id="foot" hidden>
+  <p id="opdateret"></p>
+  <p>Priserne er dem, der stod i butikken, da ønsket kom på listen.</p>
+  <button type="button" class="ud" id="ud">Log ud</button>
+</footer>
 
 <script>
 (function(){
+  // Hvem må se listen. Navnene står ikke her i klar tekst, kun en kode lavet ud fra navnet.
+  var BRUGERE=[{"h":"91198979d93aa98594ca75258af517b75734ca438c76248ac3c4f1ef5045f60f","k":"57f8d26a009d9b3c"}];
+
   var DAGE=["søndag","mandag","tirsdag","onsdag","torsdag","fredag","lørdag"];
   var MDR=["januar","februar","marts","april","maj","juni","juli","august","september","oktober","november","december"];
   var GAVE='<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="8" y="24" width="48" height="34" rx="5" fill="#1F4D3A"/><rect x="4" y="16" width="56" height="12" rx="4" fill="#C2412D"/><rect x="28" y="16" width="8" height="42" fill="#F2C14E"/><path d="M32 16c-4-9-15-10-15-3 0 4 8 4 15 3zm0 0c4-9 15-10 15-3 0 4-8 4-15 3z" fill="none" stroke="#F2C14E" stroke-width="3.5"/></svg>';
+  window.__GAVE=GAVE;
+  var $=function(id){return document.getElementById(id)};
 
-  function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); localStorage.setItem(k,v);}catch(e){return null}}
+  function store(k,v){try{ if(v===undefined) return localStorage.getItem(k); if(v===null) return localStorage.removeItem(k); localStorage.setItem(k,v);}catch(e){return null}}
   function sess(k,v){try{ if(v===undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k,v);}catch(e){return null}}
   function esc(s){return String(s==null?"":s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]})}
   function safeUrl(u){u=String(u||"");return /^https?:\/\//i.test(u)?u:"#"}
@@ -161,6 +206,10 @@ footer{color:var(--muted);font-size:14px;text-align:center;max-width:680px;margi
     if(w.butik) return w.butik;
     try{return new URL(w.link).hostname.replace(/^www\./,"")}catch(e){return ""}
   }
+  function hex(b){return Array.prototype.map.call(new Uint8Array(b),function(x){return (x<16?"0":"")+x.toString(16)}).join("")}
+  function fraHex(h){var a=new Uint8Array(h.length/2);for(var i=0;i<a.length;i++)a[i]=parseInt(h.substr(i*2,2),16);return a}
+  function sha(s){return crypto.subtle.digest("SHA-256",new TextEncoder().encode(s))}
+  function paent(n){n=n.trim();return n.charAt(0).toUpperCase()+n.slice(1)}
 
   // Sidste besøg: gemmes i browseren. Inden for samme besøg bliver NY-mærkerne stående.
   var forrige=sess("jul-forrige");
@@ -174,11 +223,13 @@ footer{color:var(--muted);font-size:14px;text-align:center;max-width:680px;margi
   var sortering=store("jul-sortering")==="aeldste"?"aeldste":"nyeste";
   var oensker=[];
 
-  function tegn(){
-    var list=document.getElementById("list");
-    var statusEl=document.getElementById("status");
-    document.querySelectorAll(".sort button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.sort===sortering))});
+  function billede(url,klasse){
+    return url ? '<img src="'+esc(safeUrl(url))+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=\'<span class=&quot;'+klasse+'&quot;>\'+window.__GAVE+\'</span>\'">' : "";
+  }
 
+  function tegn(){
+    var list=$("list"), statusEl=$("status");
+    document.querySelectorAll(".sort button").forEach(function(b){b.setAttribute("aria-pressed",String(b.dataset.sort===sortering))});
     if(!oensker.length){
       statusEl.innerHTML="";
       list.innerHTML='<li class="empty"><b>Listen er tom lige nu</b>Kig forbi igen om lidt.</li>';
@@ -194,45 +245,84 @@ footer{color:var(--muted);font-size:14px;text-align:center;max-width:680px;margi
 
     var vis=oensker.slice().sort(function(a,b){return sortering==="nyeste"?b.t-a.t:a.t-b.t});
     list.innerHTML=vis.map(function(w){
-      var ny=sidst&&w.t>sidst;
+      var ny=sidst&&w.t>sidst, link=esc(safeUrl(w.link)), ext=' target="_blank" rel="noopener noreferrer"';
       var shop=butik(w);
       var meta=[shop?esc(shop):"",w.pris?'<span class="price">'+esc(w.pris)+"</span>":""].filter(Boolean).join(" · ");
-      var thumb=w.billede
-        ? '<img src="'+esc(safeUrl(w.billede))+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.innerHTML=window.__GAVE">'
-        : GAVE;
-      return '<li><a class="wish'+(ny?" is-new":"")+'" href="'+esc(safeUrl(w.link))+'" target="_blank" rel="noopener noreferrer">'
-        +'<div class="thumb">'+thumb+"</div>"
+      var alt="";
+      if(w.eller&&w.eller.link){
+        var e=w.eller;
+        alt='<a class="alt" href="'+esc(safeUrl(e.link))+'"'+ext+'>'
+          +(e.billede?billede(e.billede,"mini"):'<span class="mini">'+GAVE+"</span>")
+          +'<span class="alt-txt"><span class="alt-lbl">'+esc(e.tekst||"Eller")+"</span>"+esc(e.navn||"")
+          +(e.pris?' · <span class="price">'+esc(e.pris)+"</span>":"")+"</span>"
+          +'<span class="alt-go">Se <span aria-hidden="true">↗</span></span></a>';
+      }
+      return '<li class="wish'+(ny?" is-new":"")+'">'
+        +'<a class="thumb" href="'+link+'"'+ext+' tabindex="-1" aria-hidden="true">'+(w.billede?billede(w.billede,"gave"):GAVE)+"</a>"
         +'<div class="body">'
           +'<div class="row1"><span class="num">Ønske '+w.nr+"</span>"+(ny?'<span class="badge">NY</span>':"")+"</div>"
-          +'<h2 class="name">'+esc(w.navn||"Ønske")+"</h2>"
+          +'<h2 class="name"><a href="'+link+'"'+ext+'>'+esc(w.navn||"Ønske")+"</a></h2>"
           +(meta?'<p class="shop">'+meta+"</p>":"")
           +(w.note?'<p class="note">'+esc(w.note)+"</p>":"")
-          +'<div class="foot"><span class="date">Tilføjet '+hvornaar(new Date(w.t))+'</span><span class="go">Se ønsket <span aria-hidden="true">↗</span></span></div>'
-        +"</div></a></li>";
+          +alt
+          +'<div class="foot"><span class="date">Tilføjet '+hvornaar(new Date(w.t))+'</span><a class="go" href="'+link+'"'+ext+'>Se ønsket <span aria-hidden="true">↗</span></a></div>'
+        +"</div></li>";
     }).join("");
   }
-  window.__GAVE=GAVE;
 
   document.querySelectorAll(".sort button").forEach(function(b){
     b.addEventListener("click",function(){sortering=b.dataset.sort;store("jul-sortering",sortering);tegn()});
   });
 
-  fetch("onsker.json?t="+Date.now(),{cache:"no-store"})
-    .then(function(r){if(!r.ok) throw new Error(r.status);return r.json()})
-    .then(function(data){
-      oensker=(Array.isArray(data)?data:[]).filter(function(w){return w&&w.link&&!w.skjult})
-        .map(function(w){return Object.assign({},w,{t:new Date(w.tilfoejet).getTime()||0})})
-        .sort(function(a,b){return a.t-b.t})
-        .map(function(w,i){w.nr=i+1;return w});
-      tegn();
-      if(oensker.length){
-        var max=oensker[oensker.length-1].t;
-        document.getElementById("foot").textContent="Sidst opdateret "+hvornaar(new Date(max))+". Tryk på et ønske for at se det i butikken.";
-      }
-    })
-    .catch(function(){
-      document.getElementById("list").innerHTML='<li class="error"><b>Listen kunne ikke hentes</b>Prøv at genindlæse siden om lidt.</li>';
+  function visLogin(besked){
+    $("indhold").hidden=true; $("foot").hidden=true; $("login").hidden=false;
+    $("kicker").textContent="Jul 2026";
+    $("fejl").hidden=!besked; $("fejl").textContent=besked||"";
+  }
+
+  function hent(bruger){
+    $("login").hidden=true; $("indhold").hidden=false; $("foot").hidden=false;
+    $("kicker").textContent="Hej "+bruger.navn;
+    $("ud").textContent="Ikke "+bruger.navn+"? Log ud";
+    fetch("liste-"+bruger.token+".json?t="+Date.now(),{cache:"no-store"})
+      .then(function(r){if(r.status===404){throw "ukendt"} if(!r.ok) throw new Error(r.status);return r.json()})
+      .then(function(data){
+        oensker=(Array.isArray(data)?data:[]).filter(function(w){return w&&w.link&&!w.skjult})
+          .map(function(w){return Object.assign({},w,{t:new Date(w.tilfoejet).getTime()||0})})
+          .sort(function(a,b){return a.t-b.t})
+          .map(function(w,i){w.nr=i+1;return w});
+        tegn();
+        $("opdateret").textContent=oensker.length?"Sidst opdateret "+hvornaar(new Date(oensker[oensker.length-1].t))+".":"";
+      })
+      .catch(function(err){
+        if(err==="ukendt"){ store("jul-bruger",null); visLogin("Log ind igen for at se listen."); return; }
+        $("list").innerHTML='<li class="error"><b>Listen kunne ikke hentes</b>Prøv at genindlæse siden om lidt.</li>';
+      });
+  }
+
+  $("login").addEventListener("submit",function(ev){
+    ev.preventDefault();
+    var raa=$("navn").value, n=raa.trim().toLowerCase().normalize("NFC");
+    if(!n) return;
+    if(!window.crypto||!crypto.subtle){ visLogin("Din browser kan ikke åbne listen. Prøv i Safari eller Chrome."); return; }
+    sha("jul|h|"+n).then(function(h){
+      h=hex(h);
+      var b=BRUGERE.filter(function(x){return x.h===h})[0];
+      if(!b){ visLogin("Det navn kender jeg ikke. Prøv igen, eller spørg Tobias."); $("navn").select(); return; }
+      return sha("jul|k|"+n).then(function(k){
+        var key=new Uint8Array(k).slice(0,8), kode=fraHex(b.k), t=new Uint8Array(8);
+        for(var i=0;i<8;i++) t[i]=kode[i]^key[i];
+        var bruger={navn:paent(raa),token:hex(t)};
+        store("jul-bruger",JSON.stringify(bruger));
+        hent(bruger);
+      });
     });
+  });
+
+  $("ud").addEventListener("click",function(){ store("jul-bruger",null); $("navn").value=""; visLogin(""); $("navn").focus(); });
+
+  var gemt=null; try{gemt=JSON.parse(store("jul-bruger")||"null")}catch(e){}
+  if(gemt&&gemt.token&&gemt.navn) hent(gemt); else visLogin("");
 })();
 </script>
 </body>

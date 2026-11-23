@@ -1,0 +1,33 @@
+[
+  {
+    "tilfoejet": "2026-11-23T17:05:00+01:00",
+    "navn": "Apple AirPods 5 (2026) med trådløst opladningsetui",
+    "link": "https://www.elgiganten.dk/product/tv-lyd-smart-home/horetelefoner-tilbehor/horetelefoner/apple-airpods-5-2026-med-tradlost-opladningsetui/1141349",
+    "butik": "Elgiganten",
+    "pris": "1.299 kr.",
+    "billede": "https://www.elgiganten.dk/image/dv_web_D180001449809/1141349/apple-airpods-5-2026-med-tradlost-opladningsetui.jpg"
+  },
+  {
+    "tilfoejet": "2026-11-23T17:05:20+01:00",
+    "navn": "Sonos Era 100 SL højttalere, 2-pak (hvid)",
+    "link": "https://www.elgiganten.dk/product/tv-lyd-smart-home/hojtalere-hi-fi/hojttalere/sonos-era-100-sl-tradlose-bluetooth-hojttalere-2-pak-hvid/1140447",
+    "butik": "Elgiganten",
+    "pris": "2.249 kr.",
+    "billede": "https://www.elgiganten.dk/image/dv_web_D1800014544/1140447/sonos-era-100-sl-tradlose-bluetooth-hojttalere-2-pak-hvid.jpg",
+    "eller": {
+      "tekst": "Eller bare én",
+      "navn": "Sonos Era 100 SL højttaler (hvid)",
+      "link": "https://www.elgiganten.dk/product/tv-lyd-smart-home/hojtalere-hi-fi/hojttalere/sonos-era-100-sl-bluetooth-hojttaler-hvid/1045678",
+      "pris": "1.199 kr.",
+      "billede": "https://www.elgiganten.dk/image/dv_web_D18000138372177/1045678/sonos-era-100-sl-bluetooth-hojttaler-hvid.jpg"
+    }
+  },
+  {
+    "tilfoejet": "2026-11-23T17:05:50+01:00",
+    "navn": "Nespresso Vertuo POP kapselmaskine + mælkeskummer",
+    "link": "https://www.elgiganten.dk/product/hjem-rengoring-kokkenudstyr/kaffe-te/kapselmaskine/nespresso-vertuo-pop-kapselmaskine-malkeskummer/633792",
+    "butik": "Elgiganten",
+    "pris": "499 kr.",
+    "billede": "https://www.elgiganten.dk/image/dv_web_D1800010021640291/633792/nespresso-vertuo-pop-kapselmaskine-malkeskummer.jpg"
+  }
+]

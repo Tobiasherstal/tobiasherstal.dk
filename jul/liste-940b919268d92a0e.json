@@ -52,5 +52,20 @@
       "pris": "1.349 kr.",
       "billede": "https://www.elgiganten.dk/image/dv_web_D1800014516792/1132142/logitech-g-g502-x-plus-tradlos-gamingmus-hvidturkis.jpg"
     }
+  },
+  {
+    "tilfoejet": "2026-11-25T11:49:00+01:00",
+    "navn": "ASUS ZenScreen Duo OLED 14\" (MQ149CD), dobbelt bærbar skærm",
+    "link": "https://www.komplett.dk/product/1324436/hardware/skaerme/skaerme/asus-14-zenscreen-duo-portable-skaerm-mq149cd",
+    "butik": "Komplett",
+    "pris": "4.790 kr.",
+    "billede": "https://www.komplett.dk/product-media/b2c/en-us/1200/1324436.jpg",
+    "eller": {
+      "tekst": "Eller",
+      "navn": "Acer PD3 18,5\" dobbelt bærbar skærm (PD193QE)",
+      "link": "https://www.komplett.dk/product/1328249/hardware/skaerme/skaerme/acer-186-portable-skaerm-pd3",
+      "pris": "2.490 kr.",
+      "billede": "https://www.komplett.dk/product-media/b2c/en-us/1200/1328249.jpg"
+    }
   }
 ]
